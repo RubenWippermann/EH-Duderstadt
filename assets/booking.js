@@ -274,7 +274,7 @@
             form.innerHTML =
               '<div class="form-success"><span class="form-success-ic">✓</span>' +
               '<h3>Danke — eure Anfrage ist da!</h3>' +
-              '<p>Wir melden uns persönlich, in der Regel noch am selben Werktag.' +
+              '<p>Wir melden uns persönlich und zeitnah.' +
               (res.ticket_id ? ' Eure Vorgangsnummer: <b>' + esc(res.ticket_id) + '</b>.' : '') + '</p>' +
               '<p class="muted">Dringend? Ruft uns an: <a href="tel:' + TEL_HREF + '">' + TEL + '</a></p></div>';
             form.scrollIntoView({ behavior: 'smooth', block: 'center' });
