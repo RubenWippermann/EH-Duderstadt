@@ -305,6 +305,13 @@ a.termin-row:hover .termin-cta{background:linear-gradient(135deg,var(--cta-a),va
   .tf-count{width:100%;margin-left:0}
 }
 
+/* ---------- Illustrationen (freigestellte Aquarelle) ---------- */
+.illu{width:100%;height:auto;max-width:100%;display:block}
+.illu-card{background:linear-gradient(160deg,var(--bg-tint),var(--bg-soft));border:1px solid var(--line);
+  border-radius:var(--r-xl);padding:clamp(14px,2.5vw,28px)}
+.illu-round{border-radius:var(--r-lg)}
+.split .illu{margin-bottom:18px}
+
 /* ---------- Cards / Grids ---------- */
 /* minmax(0,1fr) statt 1fr: Spalten strikt gleich breit, egal wie breit der Inhalt ist
    (verhindert das „schiefe Raster", bei dem eine Karte mit längerem Wort breiter wird) */
