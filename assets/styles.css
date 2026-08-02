@@ -145,7 +145,7 @@ body.menu-open .menu-toggle span{background:transparent}
 body.menu-open .menu-toggle span::before{top:0;transform:rotate(45deg)}
 body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 
-@media (max-width:1040px){
+@media (max-width:1200px){
   .menu-toggle{display:flex}
   .nav-links{
     position:fixed;inset:var(--nav-h) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;
