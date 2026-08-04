@@ -306,7 +306,7 @@ a.termin-row:hover .termin-cta{background:linear-gradient(135deg,var(--cta-a),va
 }
 
 /* ---------- Illustrationen (freigestellte Aquarelle) ---------- */
-.illu{width:100%;height:auto;max-width:100%;display:block}
+.illu{width:100%;height:auto;max-width:100%;min-width:0;display:block}
 .illu-card{background:linear-gradient(160deg,var(--bg-tint),var(--bg-soft));border:1px solid var(--line);
   border-radius:var(--r-xl);padding:clamp(14px,2.5vw,28px)}
 .illu-round{border-radius:var(--r-lg)}
@@ -392,7 +392,7 @@ a.kurs-card:hover .k-more{gap:9px}
 
 /* Split */
 .split{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,4vw,60px);align-items:center}
-@media (max-width:900px){.split{grid-template-columns:1fr}}
+@media (max-width:900px){.split{grid-template-columns:minmax(0,1fr)}}
 
 /* Checkliste */
 .checks{list-style:none;padding:0;margin:0 0 1.3em;display:grid;gap:11px}
