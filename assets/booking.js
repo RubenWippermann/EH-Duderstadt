@@ -16,6 +16,14 @@
 (function () {
   'use strict';
 
+  // Rechtssicherheit (§ 23 Abs. 2 SGB VII): BG/UK-Erstattung gilt NUR für Ersthelfer-Ausbildung,
+  // Ersthelfer-Fortbildung und Erste Hilfe in Bildungs-/Betreuungseinrichtungen. Der geteilte Feed
+  // liefert bg_uk_abrechenbar teils fälschlich true (Brandschutz, Betriebssani, Notfalltraining,
+  // Lehrkräfte, Sanitätshelfer) → strengere Whitelist als zusätzliche Absicherung gegen eine
+  // falsche Rechtsaussage im Live-Badge. Bleibt auch nach Feed-Korrektur richtig (strenger).
+  var BG_UK_KURSARTEN = { EHA: 1, EHF: 1, EHB: 1 };
+  function istBgUk(k) { return !!(k && k.bg_uk_abrechenbar && BG_UK_KURSARTEN[k.kursart]); }
+
   var CFG = window.EHD_CONFIG || {};
   var API        = CFG.api        || 'https://software-wippermann.de';
   var ORG_LEAD   = CFG.orgLead    || 'personal-paramedic';
@@ -97,7 +105,7 @@
   function rowHTML(k) {
     var tags = [k.stadt];
     if (k.fuehrerschein_geeignet) tags.push('Führerschein');
-    if (k.bg_uk_abrechenbar) tags.push('BG/UK abrechenbar');
+    if (istBgUk(k)) tags.push('BG/UK abrechenbar');
     if (k.mehrtaegig) tags.push('mehrtägig');
 
     var zeit  = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
@@ -138,7 +146,7 @@
     var artKeys = Object.keys(arten).sort(function (a, b) { return arten[a].localeCompare(arten[b]); });
     var stadtKeys = Object.keys(staedte).sort();
     var showArt = artKeys.length > 1, showStadt = stadtKeys.length > 1;
-    var hasBg = all.some(function (k) { return k.bg_uk_abrechenbar; });
+    var hasBg = all.some(function (k) { return istBgUk(k); });
 
     var bar = '';
     if (showArt || showStadt || hasBg) {
@@ -159,7 +167,7 @@
     function apply() {
       var a = artSel ? artSel.value : '', s = stadtSel ? stadtSel.value : '', bg = bgChk && bgChk.checked;
       var f = all.filter(function (k) {
-        return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || k.bg_uk_abrechenbar);
+        return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || istBgUk(k));
       });
       rows.innerHTML = f.length ? f.map(rowHTML).join('')
         : '<p class="termine-empty">Für diese Auswahl ist gerade nichts frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
