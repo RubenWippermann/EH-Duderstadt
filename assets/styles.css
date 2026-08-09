@@ -298,7 +298,7 @@ a.termin-row:hover .termin-cta{background:linear-gradient(135deg,var(--cta-a),va
   appearance:none;min-width:0;max-width:100%;flex:1 1 150px;text-overflow:ellipsis;
   padding:10px 38px 10px 14px;border:1px solid var(--line);border-radius:var(--r-pill);
   background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2378716C' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 15px center;
-  color:var(--ink);font:inherit;font-size:1rem;cursor:pointer;/* ≥16px: kein iOS-Zoom beim Antippen */
+  color:var(--ink);font:inherit;font-size:max(16px,1rem);cursor:pointer;/* ≥16px: harte iOS-Zoom-Schwelle (nicht 1rem-abhängig) */
 }
 .tf-bg{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--ink-2);cursor:pointer;padding:10px 14px;border:1px solid var(--line);border-radius:var(--r-pill)}
 .tf-count{margin-left:auto;color:var(--muted);font-size:.87rem;font-weight:600}
@@ -484,7 +484,7 @@ tr:last-child td{border-bottom:0}
 .field label .req{color:var(--brand)}
 .field input,.field select,.field textarea{
   width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:var(--r-sm);
-  background:var(--bg);color:var(--ink);font:inherit;font-size:1rem;
+  background:var(--bg);color:var(--ink);font:inherit;font-size:max(16px,1rem);/* ≥16px = harte iOS-Zoom-Schwelle, robust gegen Wurzel-Änderung; skaliert bei größerer Nutzerschrift */
   transition:border-color .18s var(--ease),box-shadow .18s var(--ease);
 }
 .field textarea{min-height:130px;resize:vertical}
