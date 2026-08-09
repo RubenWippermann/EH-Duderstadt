@@ -118,6 +118,11 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 .brand:hover{color:var(--ink)}
 .brand svg{width:40px;height:40px;flex:0 0 auto}
 .brand img.brand-logo{height:40px;width:auto;max-width:none;flex:0 0 auto}
+/* Dunkelmodus: das Logo ist für weißen Grund gezeichnet (weißes Kreuz = Transparenz,
+   anthrazit-Skyline). Auf dunklem Header sonst unsichtbar → auf helle Platte setzen,
+   dann rendert es exakt wie entworfen. */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand img.brand-logo{background:#FCF7F1;border-radius:8px;padding:4px 7px}}
+:root[data-theme="dark"] .brand img.brand-logo{background:#FCF7F1;border-radius:8px;padding:4px 7px}
 .brand-txt{display:flex;flex-direction:column;line-height:1.12}
 .brand-txt b{font-size:1.02rem;font-weight:780;letter-spacing:-.028em;white-space:nowrap}
 .brand-txt small{font-size:.685rem;color:var(--muted);letter-spacing:.075em;text-transform:uppercase;font-weight:620;white-space:nowrap}
