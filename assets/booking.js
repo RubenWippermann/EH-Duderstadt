@@ -127,6 +127,11 @@
     }
     // buchungs_url unverändert übernehmen (enthält den org des Veranstalters!)
     var url = k.buchungs_url || (API + '/buchen?termin=' + encodeURIComponent(k.id || ''));
+    // Herkunft dieser Website anhängen (org bleibt unberührt, nur ein Parameter dazu)
+    // → Buchungs-Attribution: booking_requests.quelle = erstehilfe-duderstadt statt erfundenem Default.
+    if (url.indexOf('quelle=') === -1) {
+      url += (url.indexOf('?') === -1 ? '?' : '&') + 'quelle=' + encodeURIComponent(QUELLE);
+    }
     return '<a class="termin-row" href="' + esc(url) + '" target="_blank" rel="noopener"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(k.titel)) + '">' +
       inner + '<span class="termin-cta">Platz buchen →</span></a>';
