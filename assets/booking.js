@@ -111,6 +111,12 @@
     var zeit  = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
     var preis = (k.preis != null && k.preis !== '') ? esc(k.preis) + ' €' : 'auf Anfrage';
     var voll  = !!k.ausgebucht;
+    // ⚠️ NICHT "reparieren": liest bewusst k.freie_plaetze, der Feed liefert aber plaetze_frei
+    //    -> immer undefined -> "nur noch X Plätze" triggert NIE, es steht immer "Plätze frei".
+    //    Das ist AKTUELL GEWOLLT/schützend: plaetze_frei ist unbelastbar (15/33 Termine weichen von
+    //    HiOrg ab, 12 statt 25) -> würde man den Feldnamen korrigieren, gaukelte die Seite eine
+    //    Knappheit vor, die niemand belegen kann. Feldname UND Knappheitsanzeige gehören ZUSAMMEN
+    //    behoben, erst wenn plaetze_frei nach dem Feed-Fix belastbar ist. Bis dahin so lassen.
     var frei  = (k.freie_plaetze != null && k.freie_plaetze !== '' && +k.freie_plaetze <= 4 && !voll)
                 ? 'nur noch ' + esc(k.freie_plaetze) + ' Plätze' : 'Plätze frei';
 
