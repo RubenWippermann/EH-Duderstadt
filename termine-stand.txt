@@ -1,0 +1,6 @@
+2026-08-16T19:19:32+00:00	38
+# startdate_ausgezeichnet=ja
+# quelle=https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1
+# Regel: Ist die Zeit oben älter als 48 Stunden, sind die Termine nicht mehr
+# belastbar. Dann neu bauen — oder abschalten: OHNE_TERMIN_LD=1 python3 build.py
+# Prüfen: python3 build/pruefe-termin-frische.py

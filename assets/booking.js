@@ -59,6 +59,17 @@
     return fmtDate(k.datum) + ' – ' + fmtDate(k.datum_ende);
   }
   function label(t) { return String(t == null ? '' : t).replace(/\s*\([^)]*\)/g, '').trim(); }
+  // Anmeldeschluss = Kursbeginn - 15 Min (Ruben-Regel): danach NICHT mehr anzeigen (aus der
+  // Werbung, nicht aus dem Betrieb — der Buchungslink funktioniert weiter fuer Walk-ins per
+  // Dozent-QR). Kurs OHNE Uhrzeit: am Kurstag selbst raus. datum=Datum, uhrzeit=Ortszeit.
+  function bewerbbar(k) {
+    var datum = k && k.datum || '';
+    if (!datum) return true;
+    if (!k.uhrzeit) return datum > today();       // ohne Uhrzeit: nur bis zum Vortag
+    var start = new Date(datum + 'T' + k.uhrzeit); // Browser-lokal (dt. Publikum = Berlin)
+    if (isNaN(start.getTime())) return true;
+    return Date.now() < start.getTime() - 15 * 60 * 1000;
+  }
   function jget(url) {
     return fetch(url, { credentials: 'omit' }).then(function (r) {
       if (!r.ok) throw new Error('http_' + r.status);
@@ -96,7 +107,7 @@
         return String(a.datum).localeCompare(String(b.datum)) ||
                String(a.uhrzeit || '').localeCompare(String(b.uhrzeit || ''));
       });
-      return out;
+      return out.filter(bewerbbar);   // Anmeldeschluss -15 Min: abgelaufene raus aus der Anzeige
     });
     return _feed;
   }
