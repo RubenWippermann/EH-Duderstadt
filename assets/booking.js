@@ -149,6 +149,13 @@
     if (url.indexOf('quelle=') === -1) {
       url += (url.indexOf('?') === -1 ? '?' : '&') + 'quelle=' + encodeURIComponent(QUELLE);
     }
+    // Attribution Phase 1: welche SEITE die Buchung ausgelöst hat, je Ortsseite unterscheidbar.
+    // ERGÄNZEND (quelle bleibt unangetastet — die Exact-Match-Auswertung darf nicht brechen).
+    // Non-breaking: solange die Software die Spalte quelle_pfad nicht speichert, wird der Param
+    // ignoriert. Last-Touch (die Seite vor dem Klick), reicht für „welche Ortsseite konvertiert".
+    if (url.indexOf('quelle_pfad=') === -1) {
+      url += '&quelle_pfad=' + encodeURIComponent(location.pathname);
+    }
     return '<a class="termin-row" href="' + esc(url) + '" target="_blank" rel="noopener"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(k.titel)) + '">' +
       inner + '<span class="termin-cta">Platz buchen →</span></a>';
