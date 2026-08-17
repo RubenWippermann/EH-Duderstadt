@@ -8,8 +8,8 @@
 
    WICHTIG — Mandanten-Logik:
    • Offene Kurse (Worbis) werden von BWW veranstaltet. Deren `buchungs_url`
-     enthält bereits `org=bww` und wird NIE umgeschrieben — die org bestimmt den
-     Veranstalter und bleibt unverändert.
+     enthält bereits `org=bww` und wird unverändert übernommen (der Veranstalter
+     steckt in der URL; Umschreiben bricht die Zuordnung).
    • Leads dieser Website gehören Personal Paramedic (`org=personal-paramedic`)
      und tragen `quelle=erstehilfe-duderstadt` zur Attribution im Arbeitsbereich.
    ========================================================================== */
