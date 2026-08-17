@@ -59,6 +59,14 @@
     return fmtDate(k.datum) + ' – ' + fmtDate(k.datum_ende);
   }
   function label(t) { return String(t == null ? '' : t).replace(/\s*\([^)]*\)/g, '').trim(); }
+  // Sichtbaren Titel vom internen Auftraggeber-Zusatz befreien (alles ab " · "). NUR ANZEIGE —
+  // k.buchungs_url/k.id und der eingebackene Snapshot bleiben unberührt. Netz gegen einen Kundennamen
+  // im Feed (software-wippermann: " · " ist der interne Trenner, 0 legitime Zusätze); Klammern bleiben.
+  // NETZ, kein Wurzelfix: ein public=1-Inhouse bleibt buchbar, nur der Name wird nicht mehr gezeigt.
+  function titelAnzeige(t) {
+    var s = String(t == null ? '' : t), kopf = s.split(/\s+[·•]\s+/)[0].trim();
+    return kopf || s;
+  }
   // Anmeldeschluss = Kursbeginn - 15 Min (Ruben-Regel): danach NICHT mehr anzeigen (aus der
   // Werbung, nicht aus dem Betrieb — der Buchungslink funktioniert weiter fuer Walk-ins per
   // Dozent-QR). Kurs OHNE Uhrzeit: am Kurstag selbst raus. datum=Datum, uhrzeit=Ortszeit.
@@ -133,13 +141,13 @@
 
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
-      '<span class="termin-info"><b>' + esc(k.titel) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small></span>' +
+      '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small></span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : frei) + '</small></span>';
 
     if (voll) {
       return '<div class="termin-row is-full">' + inner +
         '<button type="button" class="termin-cta wl-open" data-termin="' + esc(k.id) + '"' +
-        ' data-titel="' + esc(k.titel) + '"' +
+        ' data-titel="' + esc(titelAnzeige(k.titel)) + '"' +
         ' data-datum="' + esc(fmtRange(k)) + (k.stadt ? ' · ' + esc(k.stadt) : '') + '">Warteliste →</button></div>';
     }
     // buchungs_url unverändert übernehmen (enthält den org des Veranstalters!)
@@ -157,7 +165,7 @@
       url += '&quelle_pfad=' + encodeURIComponent(location.pathname);
     }
     return '<a class="termin-row" href="' + esc(url) + '" target="_blank" rel="noopener"' +
-      ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(k.titel)) + '">' +
+      ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(titelAnzeige(k.titel))) + '">' +
       inner + '<span class="termin-cta">Platz buchen →</span></a>';
   }
 
@@ -169,7 +177,7 @@
   function renderFiltered(el, all) {
     var arten = {}, staedte = {};
     all.forEach(function (k) {
-      if (k.kursart && !arten[k.kursart]) arten[k.kursart] = label(k.titel);
+      if (k.kursart && !arten[k.kursart]) arten[k.kursart] = label(titelAnzeige(k.titel));
       if (k.stadt) staedte[k.stadt] = 1;
     });
     var artKeys = Object.keys(arten).sort(function (a, b) { return arten[a].localeCompare(arten[b]); });
