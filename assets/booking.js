@@ -211,6 +211,11 @@
     var els = document.querySelectorAll('[data-termine]');
     if (!els.length) return;
     Array.prototype.forEach.call(els, function (el) {
+      // Vorgerenderte Zeilen NICHT durch das Platzhalter-Gerippe ersetzen: sie stehen seit dem
+      // Bau im HTML (static-first) und sind das, was Crawler/Antwortmaschinen sehen. Der
+      // Erfolgsfall unten ersetzt sie gleich durch frische — frisch schlägt gebacken, aber
+      // erst, wenn die frischen Daten wirklich da sind.
+      if (el.getAttribute('data-prerendered')) return;
       el.innerHTML = '<div class="termine-skeleton"><div class="sk-row"></div><div class="sk-row"></div><div class="sk-row"></div></div>';
     });
     loadFeed().then(function (all) {
@@ -240,6 +245,10 @@
       });
     }).catch(function () {
       Array.prototype.forEach.call(els, function (el) {
+        // Feed zur Laufzeit weg? Dann sind die vorgerenderten Zeilen das Beste, was wir haben —
+        // höchstens einen Tag alt. Sie durch „lässt sich nicht laden" zu ersetzen wäre ein
+        // Rückschritt gegenüber dem Zustand vor dem Vorrendern.
+        if (el.getAttribute('data-prerendered')) return;
         el.innerHTML = '<p class="termine-empty">Die Termine lassen sich gerade nicht laden. ' +
           'Bitte kurz später erneut versuchen oder anrufen: <a href="tel:' + TEL_HREF + '">' + TEL + '</a>.</p>';
       });
