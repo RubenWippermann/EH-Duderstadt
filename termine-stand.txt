@@ -1,6 +1,12 @@
-2026-08-17T08:55:45+00:00	37
+2026-08-17T09:07:49+00:00	37
 # startdate_ausgezeichnet=ja
+# fingerabdruck=92bf98e61404
+# fingerabdruck_seit=2026-08-17
+# unveraendert_seit_tagen=0
+# spaetester_termin=2026-12-20
 # quelle=https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1
 # Regel: Ist die Zeit oben älter als 48 Stunden, sind die Termine nicht mehr
 # belastbar. Dann neu bauen — oder abschalten: OHNE_TERMIN_LD=1 python3 build.py
+# Zusatz gegen eingefrorenen Feed: bleibt unveraendert_seit_tagen groß,
+# während die Zeit oben frisch aussieht, liefert der Feed dasselbe (nicht neu).
 # Prüfen: python3 build/pruefe-termin-frische.py
