@@ -201,6 +201,10 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 }
 .eyebrow::before{content:'';width:22px;height:2px;background:linear-gradient(90deg,var(--brand-hi),transparent);border-radius:2px}
 .section-head.center .eyebrow::before{display:none}
+/* Hero-Preis-Chip (Kaufargument im ersten Bildschirm) — Preis in Markenfarbe, Zusatz erbt Textfarbe */
+.hero-preis{margin:0 0 20px;font-size:.95rem;line-height:1.2}
+.hero-preis b{font-size:1.9rem;font-weight:800;color:var(--brand-lo);margin-right:9px}
+.hero-preis span{opacity:.72}
 .lead{font-size:1.12rem;color:var(--ink-2)}
 
 /* ---------- Hero ---------- */
