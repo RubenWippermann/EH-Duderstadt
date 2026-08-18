@@ -168,6 +168,12 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
   .nav-links a:last-child{border-bottom:0}
 }
 
+/* Telefonnummer aus der WAAGERECHTEN Leiste nehmen (≥1201px) — NUR wenn der Shop-Punkt
+   dazukommt (.shop-live). Sie steht redundant im Footer (jede Seite) sowie auf
+   Kontakt/Impressum; im eingeklappten Menü (≤1200px) bleibt sie. Schafft den Platz, damit
+   die Leiste mit 7 Punkten + CTA nicht abschneidet. Ohne Shop bleibt heute alles wie es ist. */
+@media (min-width:1201px){.site-header.shop-live .nav-tel{display:none}}
+
 /* ---------- Buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
