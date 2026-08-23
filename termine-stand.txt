@@ -1,4 +1,4 @@
-2026-08-23T18:37:03+00:00	36
+2026-08-23T18:38:46+00:00	36
 # startdate_ausgezeichnet=ja
 # bewegung_zuletzt=2026-08-17
 # unveraendert_seit_tagen=6
