@@ -142,7 +142,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
   transition:transform .18s var(--ease),box-shadow .18s var(--ease) !important;
 }
 .nav-cta:hover{transform:translateY(-1px);background:linear-gradient(135deg,var(--cta-a),var(--cta-b))}
-.nav-tel{display:inline-flex;align-items:center;gap:7px;font-weight:640 !important;color:var(--brand-lo) !important}
+.nav-tel{display:inline-flex;align-items:center;font-weight:500 !important;font-size:.87rem;color:var(--ink-2) !important}
 .menu-toggle{
   display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line);background:var(--card);
   border-radius:var(--r-xs);color:var(--ink);cursor:pointer;align-items:center;justify-content:center;
@@ -166,6 +166,10 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
   .nav-links a{padding:13px 10px;font-size:1.03rem;border-bottom:1px solid var(--line-2)}
   .nav-cta{margin:14px 0 0;text-align:center;padding:14px !important}
   .nav-links a:last-child{border-bottom:0}
+  /* Telefon bleibt erreichbar, tritt aber nicht mehr gegen das Formular an (Ruben, 24.08.:
+     „nirgendwo extra Telefon präsentieren, alles über Formular/Ticket"). Kleine Textzeile
+     ohne Rahmen/Icon statt vollbreite Menüzeile. */
+  .nav-tel{padding:8px 10px !important;font-size:.85rem;border-bottom:0;justify-content:center}
 }
 
 /* Telefonnummer aus der WAAGERECHTEN Leiste nehmen (≥1201px) — NUR wenn der Shop-Punkt
@@ -499,6 +503,9 @@ tr:last-child td{border-bottom:0}
 .cta-band p{color:rgba(255,255,255,.9);max-width:52ch;font-size:1.06rem}
 .cta-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
 .cta-band a:not(.btn){color:#fff;text-decoration:underline}
+/* Telefon bleibt erreichbar, tritt aber nicht mehr als dritter gleichrangiger Knopf gegen das
+   Formular an (Ruben, 24.08.: „Formular zuerst, Telefon als Rückfall"). */
+.cta-tel-fallback{margin-top:14px;font-size:.85rem;opacity:.75}
 
 /* ---------- Formulare ---------- */
 .form-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-xl);padding:clamp(24px,3vw,38px);box-shadow:var(--sh-2)}
