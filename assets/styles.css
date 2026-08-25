@@ -92,8 +92,8 @@ h4{font-size:1.03rem;letter-spacing:-.01em}
 p{margin:0 0 1.05em}
 a{color:var(--brand-lo);text-decoration:none;transition:color .18s var(--ease)}
 a:hover{color:var(--brand)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) a{color:var(--brand)}}
-:root[data-theme="dark"] a{color:var(--brand)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) a:not(.btn){color:var(--brand)}}
+:root[data-theme="dark"] a:not(.btn){color:var(--brand)}
 strong,b{font-weight:680;color:var(--ink)}
 small{font-size:.83rem}
 ul,ol{margin:0 0 1.1em;padding-left:1.25em}
