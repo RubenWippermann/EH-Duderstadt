@@ -103,7 +103,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 ::selection{background:var(--o-200);color:var(--o-950)}
 
 .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:22px}
-.skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;padding:12px 18px;border-radius:0 0 var(--r-sm) 0;z-index:200;font-weight:640}
+.skip{position:absolute;left:-9999px;top:0;background:var(--brand-lo);color:#fff;padding:12px 18px;border-radius:0 0 var(--r-sm) 0;z-index:200;font-weight:640}
 .skip:focus{left:0}
 
 /* ---------- Header / Navigation ---------- */
@@ -599,8 +599,8 @@ tr:last-child td{border-bottom:0}
 .foot-contact a:hover{color:var(--brand-lo)}
 .foot-contact svg{width:16px;height:16px;color:var(--brand);flex:0 0 auto}
 .site-footer h3{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:700}
-.foot-col{display:flex;flex-direction:column;gap:10px}
-.foot-col a{color:var(--ink-2);font-size:.93rem}
+.foot-col{display:flex;flex-direction:column;gap:2px}
+.foot-col a{color:var(--ink-2);font-size:.93rem;padding:9px 0;display:inline-block;min-height:44px;box-sizing:border-box}
 .foot-col a:hover{color:var(--brand-lo)}
 .foot-bottom{
   margin-top:44px;border-top:1px solid var(--line);padding:22px 0 30px;
