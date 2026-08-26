@@ -59,10 +59,7 @@
     return fmtDate(k.datum) + ' – ' + fmtDate(k.datum_ende);
   }
   function label(t) { return String(t == null ? '' : t).replace(/\s*\([^)]*\)/g, '').trim(); }
-  // Sichtbaren Titel vom internen Auftraggeber-Zusatz befreien (alles ab " · "). NUR ANZEIGE —
-  // k.buchungs_url/k.id und der eingebackene Snapshot bleiben unberührt. Netz gegen einen Kundennamen
-  // im Feed (software-wippermann: " · " ist der interne Trenner, 0 legitime Zusätze); Klammern bleiben.
-  // NETZ, kein Wurzelfix: ein public=1-Inhouse bleibt buchbar, nur der Name wird nicht mehr gezeigt.
+  // Sichtbaren Titel von einem internen Zusatz befreien (alles ab " · "). Reine Anzeige.
   function titelAnzeige(t) {
     var s = String(t == null ? '' : t), kopf = s.split(/\s+[·•]\s+/)[0].trim();
     return kopf || s;
