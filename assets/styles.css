@@ -225,14 +225,10 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
     radial-gradient(58% 46% at 78% 8%,rgba(249,115,22,.20),transparent 62%),
     radial-gradient(46% 40% at 8% 88%,rgba(255,176,32,.16),transparent 64%);
 }
-.hero::after{
-  content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
-  background-size:58px 58px;
-  mask-image:radial-gradient(70% 55% at 62% 32%,#000 0%,transparent 78%);
-  -webkit-mask-image:radial-gradient(70% 55% at 62% 32%,#000 0%,transparent 78%);
-  opacity:.75;
-}
+/* Punktraster-Hintergrund entfernt (25.08., Design-Review): das 58px-Gitter ist das
+   meistgenutzte "generisches SaaS-Template"-Merkmal in AI-generierten Landingpages — die
+   warmen Farbverläufe in .hero::before allein tragen die Sektion bereits. Rückrollbar:
+   einfach den alten .hero::after-Block wiederherstellen. */
 .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(32px,4.5vw,68px);align-items:center}
 .hero h1{margin-bottom:.42em}
 .hero h1 .hl{
