@@ -411,7 +411,7 @@ a.kurs-card:hover .k-more{gap:9px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
 .stat{background:var(--card);padding:28px 22px;text-align:center}
 .stat b{display:block;font-size:clamp(1.75rem,1.3rem + 1.6vw,2.5rem);font-weight:780;letter-spacing:-.03em;
-  background:linear-gradient(140deg,var(--brand-hi),var(--brand-lo));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.05}
+  color:var(--brand-lo);line-height:1.05}
 .stat span{display:block;margin-top:6px;font-size:.87rem;color:var(--muted);font-weight:560}
 @media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
 
@@ -419,9 +419,9 @@ a.kurs-card:hover .k-more{gap:9px}
 .steps{counter-reset:s;display:grid;gap:18px}
 .step{position:relative;padding-left:64px;counter-increment:s}
 .step::before{
-  content:counter(s);position:absolute;left:0;top:0;width:44px;height:44px;border-radius:14px;
+  content:counter(s);position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;
   display:grid;place-items:center;font-weight:760;font-size:1.05rem;color:#fff;
-  background:linear-gradient(140deg,var(--cta-a),var(--cta-b));box-shadow:var(--sh-brand);
+  background:var(--brand-lo);box-shadow:var(--sh-brand);
 }
 .step h3{margin-bottom:.3em;font-size:1.06rem}
 .step p{color:var(--ink-2);margin-bottom:0;font-size:.97rem}
