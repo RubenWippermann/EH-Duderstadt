@@ -297,7 +297,7 @@
 
         var btn = form.querySelector('button[type="submit"]');
         var orig = btn ? btn.textContent : '';
-        if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
+        if (btn) { btn.disabled = true; btn.setAttribute('aria-busy', 'true'); btn.textContent = 'Wird gesendet …'; }
         if (status) { status.className = 'form-status'; status.textContent = ''; }
 
         // Newsletter separat (Opt-in), fire-and-forget
@@ -340,13 +340,13 @@
             msg = 'Das hat leider nicht geklappt. Bitte erneut versuchen oder anrufen: ' + TEL + '.';
           }
           if (status) { status.className = 'form-status is-error'; status.textContent = msg; }
-          if (btn) { btn.disabled = false; btn.textContent = orig; }
+          if (btn) { btn.disabled = false; btn.removeAttribute('aria-busy'); btn.textContent = orig; }
         }).catch(function () {
           if (status) {
             status.className = 'form-status is-error';
             status.textContent = 'Verbindung fehlgeschlagen. Bitte später erneut versuchen oder anrufen: ' + TEL + '.';
           }
-          if (btn) { btn.disabled = false; btn.textContent = orig; }
+          if (btn) { btn.disabled = false; btn.removeAttribute('aria-busy'); btn.textContent = orig; }
         });
       });
     });
