@@ -315,17 +315,19 @@
         if (btn) { btn.disabled = true; btn.setAttribute('aria-busy', 'true'); btn.textContent = 'Wird gesendet …'; }
         if (status) { status.className = 'form-status'; status.textContent = ''; }
 
-        // Newsletter separat (Opt-in), fire-and-forget
+        // Newsletter separat (Opt-in). War früher fire-and-forget ohne jede Rückmeldung —
+        // ein Fehlschlag beim Newsletter-Eintrag blieb für den Nutzer unsichtbar hinter der
+        // "Danke"-Meldung der Hauptanfrage. Jetzt: Ergebnis wird abgewartet und bei Fehlschlag
+        // in der Erfolgsmeldung als Hinweis ergänzt (Hauptanfrage bleibt davon unberührt).
         var nl = form.querySelector('input[name="newsletter"]');
+        var newsletterPromise = Promise.resolve(true);
         if (nl && nl.checked) {
           var mail = (form.querySelector('[name="email"]') || {}).value || '';
           if (mail) {
-            try {
-              fetch(API + '/api/newsletter', {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ org: ORG_LEAD, email: mail, quelle: QUELLE, website: '' })
-              });
-            } catch (err) {}
+            newsletterPromise = fetch(API + '/api/newsletter', {
+              method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ org: ORG_LEAD, email: mail, quelle: QUELLE, website: '' })
+            }).then(function (r) { return r.ok; }).catch(function () { return false; });
           }
         }
 
@@ -337,14 +339,17 @@
           return r.json().catch(function () { return {}; });
         }).then(function (res) {
           if (res && res.ok) {
-            form.innerHTML =
-              '<div class="form-success"><span class="form-success-ic">✓</span>' +
-              '<h3>Danke — eure Anfrage ist da!</h3>' +
-              '<p>Wir melden uns persönlich und zeitnah.' +
-              (res.ticket_id ? ' Eure Vorgangsnummer: <b>' + esc(res.ticket_id) + '</b>.' : '') + '</p>' +
-              '<p class="muted">Dringend? Ruft uns an: <a href="tel:' + TEL_HREF + '">' + TEL + '</a></p></div>';
-            form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            return;
+            return newsletterPromise.then(function (newsletterOk) {
+              form.innerHTML =
+                '<div class="form-success"><span class="form-success-ic">✓</span>' +
+                '<h3>Danke — eure Anfrage ist da!</h3>' +
+                '<p>Wir melden uns persönlich und zeitnah.' +
+                (res.ticket_id ? ' Eure Vorgangsnummer: <b>' + esc(res.ticket_id) + '</b>.' : '') + '</p>' +
+                (newsletterOk ? '' :
+                  '<p class="muted">Die Newsletter-Anmeldung hat gerade nicht geklappt — bitte später erneut versuchen.</p>') +
+                '<p class="muted">Dringend? Ruft uns an: <a href="tel:' + TEL_HREF + '">' + TEL + '</a></p></div>';
+              form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
           }
           var msg;
           if (http === 429 || (res && res.error === 'too_many_requests')) {
