@@ -91,7 +91,6 @@ h3{font-size:clamp(1.16rem,1rem + .55vw,1.42rem);letter-spacing:-.016em}
 h4{font-size:1.03rem;letter-spacing:-.01em}
 p{margin:0 0 1.05em}
 a{color:var(--brand-lo);text-decoration:none;transition:color .18s var(--ease)}
-a:hover{color:var(--brand)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) a:not(.btn){color:var(--brand)}}
 :root[data-theme="dark"] a:not(.btn){color:var(--brand)}
 strong,b{font-weight:680;color:var(--ink)}
@@ -115,7 +114,6 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 .site-header.is-stuck{border-bottom-color:var(--line);box-shadow:var(--sh-1)}
 .nav{display:flex;align-items:center;gap:20px;height:var(--nav-h);max-width:var(--wrap);margin-inline:auto;padding-inline:22px}
 .brand{display:flex;align-items:center;gap:11px;flex:0 0 auto;color:var(--ink)}
-.brand:hover{color:var(--ink)}
 .brand svg{width:40px;height:40px;flex:0 0 auto}
 .brand img.brand-logo{height:40px;width:auto;max-width:none;flex:0 0 auto}
 /* Dunkelmodus: das Logo ist für weißen Grund gezeichnet (weißes Kreuz = Transparenz,
@@ -134,14 +132,12 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
   color:var(--ink-2);font-weight:560;font-size:.945rem;padding:9px 10px;border-radius:var(--r-xs);
   transition:background .18s var(--ease),color .18s var(--ease);white-space:nowrap;
 }
-.nav-links a:hover{background:var(--bg-tint);color:var(--brand-lo)}
 .nav-links a.active{color:var(--brand-lo);font-weight:660}
 .nav-cta{
   margin-left:8px;background:linear-gradient(135deg,var(--cta-a),var(--cta-b));color:#fff !important;
   padding:10px 18px !important;border-radius:var(--r-pill);font-weight:660 !important;box-shadow:var(--sh-brand);
   transition:transform .18s var(--ease),box-shadow .18s var(--ease) !important;
 }
-.nav-cta:hover{transform:translateY(-1px);background:linear-gradient(135deg,var(--cta-a),var(--cta-b))}
 .nav-tel{display:inline-flex;align-items:center;font-weight:500 !important;font-size:.87rem;color:var(--ink-2) !important}
 .menu-toggle{
   display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line);background:var(--card);
@@ -187,13 +183,9 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 }
 .btn:active{transform:translateY(1px)}
 .btn.primary{background:linear-gradient(135deg,var(--cta-a),var(--cta-b));color:#fff;box-shadow:var(--sh-brand)}
-.btn.primary:hover{color:#fff;transform:translateY(-2px);box-shadow:0 20px 40px -16px rgba(234,88,12,.6)}
 .btn.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
-.btn.ghost:hover{border-color:var(--brand);color:var(--brand-lo);background:var(--bg-tint)}
 .btn.light{background:#fff;color:var(--o-800)}
-.btn.light:hover{color:var(--o-900);transform:translateY(-2px)}
 .btn.outline-light{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
-.btn.outline-light:hover{background:rgba(255,255,255,.13);border-color:#fff;color:#fff}
 .btn.sm{padding:10px 18px;font-size:.92rem}
 .btn.block{display:flex;width:100%}
 .btn[disabled]{opacity:.55;cursor:not-allowed;transform:none}
@@ -298,7 +290,6 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
   padding:15px 17px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
   color:var(--ink);transition:border-color .18s var(--ease),box-shadow .18s var(--ease),transform .18s var(--ease);
 }
-a.termin-row:hover{border-color:var(--o-300);box-shadow:var(--sh-2);transform:translateY(-2px);color:var(--ink)}
 .termin-date{display:flex;flex-direction:column;min-width:112px}
 .termin-date b{font-size:.99rem;font-weight:700;letter-spacing:-.01em}
 .termin-date small{color:var(--muted);font-size:.79rem}
@@ -314,10 +305,8 @@ a.termin-row:hover{border-color:var(--o-300);box-shadow:var(--sh-2);transform:tr
   background:var(--bg-tint);color:var(--brand-lo);font-weight:650;font-size:.87rem;white-space:nowrap;
   border:1px solid var(--o-200);cursor:pointer;transition:background .18s var(--ease),color .18s var(--ease);
 }
-a.termin-row:hover .termin-cta{background:linear-gradient(135deg,var(--cta-a),var(--cta-b));color:#fff;border-color:transparent}
 .termin-row.is-full{opacity:.9}
 .termin-row.is-full .termin-cta{background:transparent;border-color:var(--line);color:var(--muted)}
-.termin-row.is-full .termin-cta:hover{border-color:var(--brand);color:var(--brand-lo)}
 .termine-empty{padding:26px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);text-align:center;background:var(--bg-soft)}
 .termine-filter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:6px}
 .termine-filter select{
@@ -373,12 +362,9 @@ a.termin-row:hover .termin-cta{background:linear-gradient(135deg,var(--cta-a),va
 }
 .card h3{margin-bottom:.4em}
 .card p{color:var(--ink-2);margin-bottom:0;font-size:.97rem}
-.card.hoverable:hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:var(--o-200)}
 /* Als Link genutzte Karten behalten die dunkle Textfarbe (nur .k-more ist orange) */
 a.card{color:var(--ink);display:flex;flex-direction:column}
-a.card:hover{color:var(--ink)}
 a.card>.k-more{margin-top:16px}
-a.card.hoverable:hover>.k-more{gap:9px}
 .card-ic{
   width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
   background:linear-gradient(140deg,var(--o-100),var(--o-200));color:var(--o-700);
@@ -389,7 +375,6 @@ a.card.hoverable:hover>.k-more{gap:9px}
 
 /* Kurskarte */
 a.kurs-card{display:flex;flex-direction:column;color:var(--ink)}
-a.kurs-card:hover{color:var(--ink)}
 .kurs-card .k-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .k-badge{
   display:inline-flex;align-items:center;padding:4px 11px;border-radius:var(--r-pill);
@@ -405,7 +390,6 @@ a.kurs-card:hover{color:var(--ink)}
 .k-price{font-weight:740;color:var(--brand-lo);font-size:1.02rem}
 .k-price small{display:block;font-weight:500;color:var(--muted);font-size:.73rem;letter-spacing:.02em}
 .k-more{font-size:.9rem;font-weight:640;color:var(--brand-lo);display:inline-flex;align-items:center;gap:5px}
-a.kurs-card:hover .k-more{gap:9px}
 
 /* Stat-Band */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
@@ -558,7 +542,6 @@ tr:last-child td{border-bottom:0}
   border:1px solid var(--line);background:var(--card);font-size:.9rem;font-weight:560;color:var(--ink-2);
   transition:.18s var(--ease);
 }
-.chip:hover{border-color:var(--brand);color:var(--brand-lo);background:var(--bg-tint);transform:translateY(-1px)}
 
 /* ---------- Seiten-Hero (Unterseiten) ---------- */
 .page-hero{padding:clamp(40px,5vw,72px) 0 clamp(28px,3.5vw,48px);background:var(--bg-soft);border-bottom:1px solid var(--line)}
@@ -567,7 +550,6 @@ tr:last-child td{border-bottom:0}
 .page-hero .hero-actions{margin-top:26px;margin-bottom:0}
 .crumbs{font-size:.83rem;color:var(--muted);margin-bottom:16px;display:flex;flex-wrap:wrap;gap:7px;align-items:center}
 .crumbs a{color:var(--muted)}
-.crumbs a:hover{color:var(--brand-lo)}
 .crumbs span{opacity:.5}
 
 /* Prose */
@@ -594,12 +576,10 @@ tr:last-child td{border-bottom:0}
 .foot-brand .brand{margin-bottom:16px}
 .foot-contact{display:flex;flex-direction:column;gap:7px;font-size:.92rem;margin-top:16px}
 .foot-contact a,.foot-contact span{color:var(--ink-2);display:inline-flex;align-items:center;gap:9px}
-.foot-contact a:hover{color:var(--brand-lo)}
 .foot-contact svg{width:16px;height:16px;color:var(--brand);flex:0 0 auto}
 .site-footer h3{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:700}
 .foot-col{display:flex;flex-direction:column;gap:2px}
 .foot-col a{color:var(--ink-2);font-size:.93rem;padding:9px 0;display:inline-block;min-height:44px;box-sizing:border-box}
-.foot-col a:hover{color:var(--brand-lo)}
 .foot-bottom{
   margin-top:44px;border-top:1px solid var(--line);padding:22px 0 30px;
   display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;
@@ -607,7 +587,6 @@ tr:last-child td{border-bottom:0}
 }
 .foot-bottom nav{display:flex;flex-wrap:wrap;gap:18px}
 .foot-bottom a{color:var(--muted)}
-.foot-bottom a:hover{color:var(--brand-lo)}
 .foot-legal{max-width:70ch;line-height:1.6}
 
 /* ---------- Sticky Mobile-CTA ---------- */
@@ -615,7 +594,7 @@ tr:last-child td{border-bottom:0}
   position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;gap:9px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
   background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);border-top:1px solid var(--line);
 }
-.sticky-cta a{flex:1;padding:13px;border-radius:var(--r-pill);text-align:center;font-weight:660;font-size:.94rem}
+.sticky-cta a{flex:1;padding:13px;border-radius:var(--r-pill);text-align:center;font-weight:660;font-size:.94rem;line-height:1.25}
 .sticky-cta a.pri{background:linear-gradient(135deg,var(--cta-a),var(--cta-b));color:#fff}
 .sticky-cta a.sec{border:1.5px solid var(--line);color:var(--ink)}
 @media (max-width:760px){.sticky-cta{display:flex}body{padding-bottom:74px}}
@@ -632,3 +611,28 @@ tr:last-child td{border-bottom:0}
 .muted{color:var(--muted)}
 .nowrap{white-space:nowrap}
 .hide{display:none}
+
+/* Hover-Effekte nur auf Geraeten mit echtem Zeiger (verhindert 'stuck hover' nach Tap auf iOS/Android) */
+@media (hover:hover) and (pointer:fine){
+a:hover{color:var(--brand)}
+.brand:hover{color:var(--ink)}
+.nav-links a:hover{background:var(--bg-tint);color:var(--brand-lo)}
+.nav-cta:hover{transform:translateY(-1px);background:linear-gradient(135deg,var(--cta-a),var(--cta-b))}
+.btn.primary:hover{color:#fff;transform:translateY(-2px);box-shadow:0 20px 40px -16px rgba(234,88,12,.6)}
+.btn.ghost:hover{border-color:var(--brand);color:var(--brand-lo);background:var(--bg-tint)}
+.btn.light:hover{color:var(--o-900);transform:translateY(-2px)}
+.btn.outline-light:hover{background:rgba(255,255,255,.13);border-color:#fff;color:#fff}
+a.termin-row:hover{border-color:var(--o-300);box-shadow:var(--sh-2);transform:translateY(-2px);color:var(--ink)}
+a.termin-row:hover .termin-cta{background:linear-gradient(135deg,var(--cta-a),var(--cta-b));color:#fff;border-color:transparent}
+.termin-row.is-full .termin-cta:hover{border-color:var(--brand);color:var(--brand-lo)}
+.card.hoverable:hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:var(--o-200)}
+a.card:hover{color:var(--ink)}
+a.card.hoverable:hover>.k-more{gap:9px}
+a.kurs-card:hover{color:var(--ink)}
+a.kurs-card:hover .k-more{gap:9px}
+.chip:hover{border-color:var(--brand);color:var(--brand-lo);background:var(--bg-tint);transform:translateY(-1px)}
+.crumbs a:hover{color:var(--brand-lo)}
+.foot-contact a:hover{color:var(--brand-lo)}
+.foot-col a:hover{color:var(--brand-lo)}
+.foot-bottom a:hover{color:var(--brand-lo)}
+}
