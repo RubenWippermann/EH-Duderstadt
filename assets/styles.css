@@ -636,3 +636,13 @@ a.kurs-card:hover .k-more{gap:9px}
 .foot-col a:hover{color:var(--brand-lo)}
 .foot-bottom a:hover{color:var(--brand-lo)}
 }
+
+/* ---------- Druck ---------- */
+@media print{
+  .site-header,.site-footer,.sticky-cta,.hero-actions,.cta-band,.termine-filter,
+  .btn,.skip,.termin-cta,button,form{display:none !important}
+  body{background:#fff;color:#000}
+  .wrap{max-width:100%;padding:0}
+  a{color:#000;text-decoration:underline}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em;font-weight:400}
+}
