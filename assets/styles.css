@@ -440,8 +440,6 @@ a.kurs-card{display:flex;flex-direction:column;color:var(--ink)}
 /* Info-Boxen */
 .note{padding:18px 20px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg-soft);font-size:.96rem}
 .note.accent{border-color:var(--o-200);background:var(--bg-tint)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .note.accent{border-color:var(--o-500)}}
-:root[data-theme="dark"] .note.accent{border-color:var(--o-500)}
 .note.ok{border-color:color-mix(in srgb,var(--ok) 35%,transparent);background:var(--ok-bg)}
 .note.warn{border-color:color-mix(in srgb,var(--warn) 35%,transparent);background:var(--warn-bg)}
 .note>b{display:block;margin-bottom:4px}
