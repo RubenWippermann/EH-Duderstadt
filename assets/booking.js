@@ -84,6 +84,20 @@
 
   /* ---------- Termin-Feed (mehrere Mandanten, zusammengeführt) ---------- */
   var _feed = null;
+  var _feedFallback = false; // true, sobald der eingebackene Snapshot statt Live-Daten lief
+  // Der "Live"-Badge im Markup ist statisch (build.py) und behauptet Echtzeit — das stimmt
+  // nicht mehr, sobald hier der Notfall-Snapshot greift. Badge dann sitzweit korrigieren.
+  function markeFeedFallback() {
+    _feedFallback = true;
+    Array.prototype.forEach.call(document.querySelectorAll('.live-dot'), function (dot) {
+      dot.classList.add('is-fallback');
+      // <i></i> (Pulse-Punkt) bleibt erhalten, nur der Text "Live" wird ersetzt
+      Array.prototype.slice.call(dot.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) dot.removeChild(n);
+      });
+      dot.appendChild(document.createTextNode('Zuletzt aktualisiert'));
+    });
+  }
   function loadFeed() {
     if (_feed) return _feed;
     var ab = today();
@@ -100,6 +114,7 @@
       // Kein einziger Feed erreichbar -> eingebackener Snapshot als Notfall-Fallback
       if (!live.length) {
         all = (window.__EHD_TERMINE__ || []).filter(function (k) { return (k.datum || '') >= ab; });
+        markeFeedFallback();
       }
       // Dubletten (gleicher Termin über zwei Mandanten) entfernen, nach Datum sortieren
       var seen = {}, out = [];
