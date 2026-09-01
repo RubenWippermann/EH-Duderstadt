@@ -326,7 +326,7 @@ a.termin-row:hover .termin-cta{background:linear-gradient(135deg,var(--cta-a),va
   background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2378716C' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 15px center;
   color:var(--ink);font:inherit;font-size:max(16px,1rem);cursor:pointer;/* ≥16px: harte iOS-Zoom-Schwelle (nicht 1rem-abhängig) */
 }
-.tf-bg{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--ink-2);cursor:pointer;padding:10px 14px;border:1px solid var(--line);border-radius:var(--r-pill)}
+.tf-bg{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--ink-2);cursor:pointer;min-height:44px;padding:10px 14px;border:1px solid var(--line);border-radius:var(--r-pill)}
 .tf-count{margin-left:auto;color:var(--muted);font-size:.87rem;font-weight:600}
 .termine-skeleton{display:flex;flex-direction:column;gap:10px}
 .sk-row{height:70px;border-radius:var(--r);background:linear-gradient(100deg,var(--line-2) 30%,var(--line) 50%,var(--line-2) 70%);background-size:220% 100%;animation:sk 1.4s infinite}
@@ -456,6 +456,8 @@ a.kurs-card:hover .k-more{gap:9px}
 /* Info-Boxen */
 .note{padding:18px 20px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg-soft);font-size:.96rem}
 .note.accent{border-color:var(--o-200);background:var(--bg-tint)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .note.accent{border-color:var(--o-500)}}
+:root[data-theme="dark"] .note.accent{border-color:var(--o-500)}
 .note.ok{border-color:color-mix(in srgb,var(--ok) 35%,transparent);background:var(--ok-bg)}
 .note.warn{border-color:color-mix(in srgb,var(--warn) 35%,transparent);background:var(--warn-bg)}
 .note>b{display:block;margin-bottom:4px}
@@ -525,7 +527,7 @@ tr:last-child td{border-bottom:0}
 .choice{position:relative;display:inline-flex}
 .choice input{position:absolute;opacity:0;width:0;height:0}
 .choice span{
-  display:inline-flex;align-items:center;padding:9px 16px;border:1.5px solid var(--line);border-radius:var(--r-pill);
+  display:inline-flex;align-items:center;min-height:44px;padding:9px 16px;border:1.5px solid var(--line);border-radius:var(--r-pill);
   font-size:.9rem;font-weight:560;cursor:pointer;color:var(--ink-2);transition:.18s var(--ease);
 }
 .choice input:checked+span{border-color:var(--brand);background:var(--bg-tint);color:var(--brand-lo);font-weight:660}
