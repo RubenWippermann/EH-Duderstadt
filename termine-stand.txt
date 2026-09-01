@@ -1,7 +1,7 @@
-2026-08-31T07:08:32+00:00	33
+2026-09-01T09:12:45+00:00	33
 # startdate_ausgezeichnet=ja
 # bewegung_zuletzt=2026-08-31
-# unveraendert_seit_tagen=0
+# unveraendert_seit_tagen=1
 # spaetester_termin=2026-12-20
 # quelle=https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1
 # Regel: Ist die Zeit oben älter als 48 Stunden, sind die Termine nicht mehr
