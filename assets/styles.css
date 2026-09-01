@@ -586,7 +586,7 @@ tr:last-child td{border-bottom:0}
   font-size:.85rem;color:var(--muted);
 }
 .foot-bottom nav{display:flex;flex-wrap:wrap;gap:18px}
-.foot-bottom a{color:var(--muted)}
+.foot-bottom a{color:var(--muted);display:inline-flex;align-items:center;min-height:44px}
 .foot-legal{max-width:70ch;line-height:1.6}
 
 /* ---------- Sticky Mobile-CTA ---------- */
