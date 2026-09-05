@@ -1,4 +1,4 @@
-2026-09-05T11:36:25+00:00	32
+2026-09-05T11:43:22+00:00	32
 # startdate_ausgezeichnet=ja
 # bewegung_zuletzt=2026-09-02
 # unveraendert_seit_tagen=3
