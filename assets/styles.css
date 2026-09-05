@@ -331,6 +331,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
   .termin-date{grid-column:1;min-width:0}
   .termin-meta{grid-column:2;grid-row:1}
   .termin-info{grid-column:1 / -1;grid-row:2}
+  .termin-info small{white-space:normal;text-overflow:clip}
   .termin-cta{grid-column:1 / -1;grid-row:3;justify-content:center;margin-top:6px}
   .tf-count{width:100%;margin-left:0}
 }
