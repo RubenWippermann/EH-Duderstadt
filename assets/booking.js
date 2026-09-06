@@ -251,9 +251,23 @@
             : EMPTY;
           return;
         }
-        if (limit > 0 || arten.length) {
-          el.innerHTML = '<div class="termine-rows">' +
-            (limit > 0 ? list.slice(0, limit) : list).map(rowHTML).join('') + '</div>';
+        if (limit > 0) {
+          // Vorschau-Kästen: erst buchbare Termine, ausgebuchte nur zum Auffüllen — nie ein leerer
+          // oder ausschließlich voller Kasten als erster Eindruck (DK-Entscheidung 06.09.). Spiegelt
+          // termin_zeilen_html() in build.py, damit SSR und Hydration dasselbe zeigen.
+          var frei = list.filter(function (k) { return !k.ausgebucht; });
+          var voll = list.filter(function (k) { return k.ausgebucht; });
+          var auswahl = frei.slice(0, limit);
+          if (auswahl.length < limit) auswahl = auswahl.concat(voll.slice(0, limit - auswahl.length));
+          var hinweis = frei.length === 0
+            ? '<p class="termine-empty">Diese Termine sind belegt — ' +
+              '<a href="/kontakt/#nachricht">schreib uns</a>, wir finden einen Platz.</p>'
+            : '';
+          el.innerHTML = hinweis + '<div class="termine-rows">' + auswahl.map(rowHTML).join('') + '</div>';
+          return;
+        }
+        if (arten.length) {
+          el.innerHTML = '<div class="termine-rows">' + list.map(rowHTML).join('') + '</div>';
           return;
         }
         renderFiltered(el, list);
