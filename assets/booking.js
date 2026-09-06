@@ -171,7 +171,7 @@
     if (url.indexOf('quelle_pfad=') === -1) {
       url += '&quelle_pfad=' + encodeURIComponent(location.pathname);
     }
-    return '<a class="termin-row" href="' + esc(url) + '" target="_blank" rel="noopener"' +
+    return '<a class="termin-row" href="' + esc(url) + '"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(titelAnzeige(k.titel))) + '">' +
       inner + '<span class="termin-cta">Platz buchen →</span></a>';
   }
