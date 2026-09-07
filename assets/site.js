@@ -95,6 +95,23 @@
     sync();
   }
 
+  /* ---------- Kursformat aus dem Link vorbelegen ----------
+     Wer von einer Kursseite auf "Als Kurs vor Ort anfragen" klickt, hat schon ein Format
+     gewählt — ?kurs=<Kürzel> in der URL übernimmt das ins Formular, statt es erneut
+     abzufragen. Rein additiv: ohne Parameter bleibt das Formular wie bisher leer. */
+  function initKursartVorbelegung() {
+    var params = new URLSearchParams(location.search);
+    var kurs = params.get('kurs');
+    if (!kurs) return;
+    var box = Array.prototype.find.call(
+      document.querySelectorAll('input[name="kursart"]'),
+      function (b) { return b.value === kurs; }
+    );
+    if (!box) return;
+    box.checked = true;
+    box.dispatchEvent(new Event('change'));
+  }
+
   /* ---------- Jahreszahl im Footer ---------- */
   function initYear() {
     var y = String(new Date().getFullYear());
@@ -108,7 +125,7 @@
     if (t) setTimeout(function () { t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 120);
   }
 
-  function boot() { initNav(); initReveal(); initKoop(); initYear(); initAnchorFocus(); }
+  function boot() { initNav(); initReveal(); initKoop(); initKursartVorbelegung(); initYear(); initAnchorFocus(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();
