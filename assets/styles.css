@@ -115,7 +115,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 }
 .site-header.is-stuck{border-bottom-color:var(--line);box-shadow:var(--sh-1)}
 .nav{display:flex;align-items:center;gap:20px;height:var(--nav-h);max-width:var(--wrap);margin-inline:auto;padding-inline:22px}
-.brand{display:flex;align-items:center;gap:11px;flex:0 0 auto;color:var(--ink)}
+.brand{display:flex;align-items:center;gap:11px;flex:0 0 auto;color:var(--ink);min-height:44px}
 .brand svg{width:40px;height:40px;flex:0 0 auto}
 .brand img.brand-logo{height:40px;width:auto;max-width:none;flex:0 0 auto}
 /* Dunkelmodus: das Logo ist für weißen Grund gezeichnet (weißes Kreuz = Transparenz,
@@ -301,7 +301,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 .termin-date b{font-size:.99rem;font-weight:700;letter-spacing:-.01em}
 .termin-date small{color:var(--muted);font-size:.79rem}
 .termin-info{display:flex;flex-direction:column;min-width:0}
-.termin-info b{font-size:.99rem;font-weight:620;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.termin-info b{font-size:.99rem;font-weight:620}
 .termin-info small{color:var(--muted);font-size:.79rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .termin-meta{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
 .termin-meta b{font-size:1.02rem;font-weight:720;color:var(--brand-lo);white-space:nowrap}
@@ -334,6 +334,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
   .termin-meta{grid-column:2;grid-row:1}
   .termin-info{grid-column:1 / -1;grid-row:2}
   .termin-info small{white-space:normal;text-overflow:clip}
+  .crumbs a{display:inline-flex;align-items:center;min-height:44px}
   .termin-cta{grid-column:1 / -1;grid-row:3;justify-content:center;margin-top:6px}
   .tf-count{width:100%;margin-left:0}
 }
@@ -582,8 +583,8 @@ tr:last-child td{border-bottom:0}
 @media (max-width:560px){.foot-grid{grid-template-columns:1fr}}
 .foot-brand p{color:var(--muted);font-size:.92rem;max-width:38ch}
 .foot-brand .brand{margin-bottom:16px}
-.foot-contact{display:flex;flex-direction:column;gap:7px;font-size:.92rem;margin-top:16px}
-.foot-contact a,.foot-contact span{color:var(--ink-2);display:inline-flex;align-items:center;gap:9px}
+.foot-contact{display:flex;flex-direction:column;gap:0;font-size:.92rem;margin-top:16px}
+.foot-contact a,.foot-contact span{color:var(--ink-2);display:inline-flex;align-items:center;gap:9px;min-height:44px}
 .foot-contact svg{width:16px;height:16px;color:var(--brand);flex:0 0 auto}
 .site-footer h3{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:700}
 .foot-col{display:flex;flex-direction:column;gap:2px}
