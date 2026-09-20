@@ -328,13 +328,13 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 .sk-row{height:70px;border-radius:var(--r);background:linear-gradient(100deg,var(--line-2) 30%,var(--line) 50%,var(--line-2) 70%);background-size:220% 100%;animation:sk 1.4s infinite}
 @keyframes sk{0%{background-position:130% 0}100%{background-position:-30% 0}}
 
+@media (max-width:1024px){.crumbs a{display:inline-flex;align-items:center;min-height:44px}}
 @media (max-width:720px){
   .termin-row{grid-template-columns:1fr auto;gap:6px 14px;padding:14px}
   .termin-date{grid-column:1;min-width:0}
   .termin-meta{grid-column:2;grid-row:1}
   .termin-info{grid-column:1 / -1;grid-row:2}
   .termin-info small{white-space:normal;text-overflow:clip}
-  .crumbs a{display:inline-flex;align-items:center;min-height:44px}
   .termin-cta{grid-column:1 / -1;grid-row:3;justify-content:center;margin-top:6px}
   .tf-count{width:100%;margin-left:0}
 }
