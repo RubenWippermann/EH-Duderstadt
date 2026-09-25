@@ -661,3 +661,72 @@ a.kurs-card:hover .k-more{gap:9px}
   a{color:#000;text-decoration:underline}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em;font-weight:400}
 }
+
+/* ==========================================================================
+   Feinschliff „ruhig, klar, viel Luft" (25.09.2026, Rubens Wunsch: /apple-design)
+   Grundsätze (Apple HIG, als Web-Regeln): eine Schrift, mittlere statt schwere Gewichte,
+   klare Größenstufen, großzügiger Weißraum, weiche Radien, Farbe nur als Akzent.
+   Duderstadt-Orange bleibt (Marke), wird aber nur noch für Handlung und Betonung genutzt.
+   Rückrollbar: diesen Block entfernen. Nur Überschreibungen, keine Struktur geändert.
+   ========================================================================== */
+:root{
+  --r-sm:14px; --r:20px; --r-lg:26px; --r-xl:32px;
+  --sh-1:0 1px 2px rgba(28,25,23,.04);
+  --sh-2:0 2px 10px -2px rgba(28,25,23,.07);
+  --sh-3:0 10px 30px -14px rgba(28,25,23,.16);
+  --sh-brand:0 6px 18px -10px rgba(194,65,12,.5);
+}
+body{line-height:1.62}
+h1,h2,h3,h4{font-weight:650;line-height:1.12;text-wrap:balance}
+h1{letter-spacing:-.034em}
+h2{letter-spacing:-.028em}
+h3{font-weight:620;letter-spacing:-.018em}
+p,li{text-wrap:pretty}
+.prose p,.prose li{max-width:68ch}
+.lead,.hero-sub,.section-head p{color:var(--ink-2);line-height:1.55}
+.eyebrow{font-weight:620;letter-spacing:.1em}
+.eyebrow::before{background:var(--brand);width:16px;height:2px}
+.brand-txt b{font-weight:680}
+
+/* Weißraum: größere Abschnitte, größere Abstände zwischen Kopf und Inhalt */
+.section{padding:clamp(72px,9vw,128px) 0}
+.section-head{margin-bottom:clamp(40px,5vw,64px)}
+.hero{padding:clamp(64px,8vw,120px) 0 clamp(56px,7vw,104px)}
+.page-hero{padding:clamp(56px,7vw,104px) 0 clamp(36px,4.5vw,64px)}
+.hero-actions{gap:12px;margin-bottom:36px}
+.hero h1{margin-bottom:.5em}
+.grid{gap:clamp(18px,2.2vw,28px)}
+
+/* Farbe zurückhaltend: Verläufe im Hero deutlich leiser, Panel ohne Farbrahmen */
+.hero::before{
+  background:
+    radial-gradient(58% 46% at 78% 8%,rgba(249,115,22,.09),transparent 62%),
+    radial-gradient(46% 40% at 8% 88%,rgba(255,176,32,.06),transparent 64%);
+}
+.hero-panel::before{display:none}
+.hero-panel{box-shadow:var(--sh-3);padding:clamp(22px,2.4vw,32px)}
+.hero h1 .hl{background-image:none;-webkit-text-fill-color:currentColor;color:var(--brand-lo)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero h1 .hl{background-image:none;-webkit-text-fill-color:currentColor;color:var(--o-400)}}
+:root[data-theme="dark"] .hero h1 .hl{background-image:none;-webkit-text-fill-color:currentColor;color:var(--o-400)}
+
+/* Schaltflächen: flache Fläche statt Verlauf, klare Größe (≥ 44 px) */
+.btn{min-height:44px;padding:13px 26px;font-weight:620}
+.btn.primary{background:var(--cta-a);box-shadow:var(--sh-brand)}
+.btn.primary:hover{background:var(--cta-b)}
+.btn.ghost{border-color:var(--line)}
+
+/* Karten: ruhiger Rand statt schwerer Schatten, weiche Ecken */
+.card{border-radius:var(--r-lg);box-shadow:none}
+.card.hoverable:hover{box-shadow:var(--sh-2)}
+.form-card{border-radius:var(--r-lg);box-shadow:var(--sh-2)}
+
+/* Tippziele (≥ 44 px) für Fließtext-Links in Fuß und Rechtsleiste */
+.foot-bottom nav a,.foot-legal a{display:inline-flex;align-items:center;min-height:44px;padding-inline:4px}
+@media (max-width:760px){.section{padding:clamp(56px,14vw,84px) 0}}
+
+/* Links im Fließtext unterstreichen (Lighthouse „link-in-text-block": Farbe allein reicht nicht,
+   Kontrast zum umgebenden Text < 3:1). Nur Textlinks im Inhalt, nicht Knöpfe, Karten oder Navigation. */
+main p a:not(.btn):not(.card),main li a:not(.btn):not(.card),main .faq-body a,main .note a{
+  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;
+}
+main p a:not(.btn):not(.card):hover,main li a:not(.btn):not(.card):hover{text-decoration-thickness:2px}
