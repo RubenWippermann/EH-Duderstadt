@@ -6,7 +6,7 @@ Stand: 25.09.2026 (wird bei jedem Bau der Website aktualisiert). Kursseite Erste
 
 ## Kernfakten
 - Personal Paramedic e.K. ist eine für Erste Hilfe ermächtigte Ausbildungsstätte mit DGUV-Kennziffer 8.2018 (§ 26 Abs. 2 DGUV Vorschrift 1).
-- Betriebliche Ersthelfer müssen in der Regel alle zwei Jahre fortgebildet werden (§ 26 Abs. 3 DGUV Vorschrift 1).
+- Betriebliche Ersthelfer müssen spätestens alle zwei Jahre fortgebildet werden (§ 26 Abs. 3 DGUV Vorschrift 1).
 - Die erforderliche Zahl betrieblicher Ersthelfer richtet sich nach § 26 Abs. 1 DGUV Vorschrift 1 — ab zwei anwesenden Versicherten mindestens eine ausgebildete Person.
 - Die Lehrgangsgebühren für Aus- und Fortbildung betrieblicher Ersthelfer trägt in der Regel der zuständige Unfallversicherungsträger — Berufsgenossenschaft oder Unfallkasse (§ 23 Abs. 2 Satz 2 SGB VII).
 - Der Erste-Hilfe-Kurs für den Führerschein umfasst 9 Unterrichtseinheiten und gilt seit 2016 einheitlich für alle Führerscheinklassen (§ 19 FeV).
@@ -56,7 +56,7 @@ Stand: 25.09.2026 (wird bei jedem Bau der Website aktualisiert). Kursseite Erste
 - [Ratgeber: Betrieblicher Ersthelfer werden](https://www.erstehilfe-duderstadt.de/ratgeber/betrieblicher-ersthelfer/) — Pflichtzahl (§ 26 DGUV Vorschrift 1), Ablauf, Kostenübernahme (§ 23 Abs. 2 SGB VII), Zwei-Jahres-Frist
 - [Ratgeber: Erste-Hilfe-Auffrischung alle 2 Jahre](https://www.erstehilfe-duderstadt.de/ratgeber/erste-hilfe-auffrischung/) — Fortbildungsfrist (§ 26 Abs. 3 DGUV Vorschrift 1), Folge bei Fristüberschreitung, Kosten
 - [Ratgeber: Erste Hilfe in Kita & Kindergarten](https://www.erstehilfe-duderstadt.de/ratgeber/erste-hilfe-kita/) — Pflichten für Betreuungseinrichtungen, Kindernotfall-Kursformat (EHB), Kostenübernahme über die Unfallkasse
-- [Ratgeber: Erste-Hilfe-Kurs für den Führerschein](https://www.erstehilfe-duderstadt.de/ratgeber/erste-hilfe-fuehrerschein/) — § 19 FeV, 9 UE, einheitlich für alle Klassen, Ablauf/Dauer/Kosten (Selbstzahler)
+- [Ratgeber: Erste-Hilfe-Kurs für den Führerschein](https://www.erstehilfe-duderstadt.de/ratgeber/erste-hilfe-fuehrerschein/) — § 19 FeV, 9 UE, seit 2016 einheitlich für alle Klassen, Ablauf/Dauer/Kosten (Selbstzahler)
 - [Ratgeber: Erste Hilfe im Betrieb — Arbeitgeberpflichten](https://www.erstehilfe-duderstadt.de/ratgeber/arbeitgeber-pflichten/) — Ersthelfer-Quote, Ausbildungspflicht, Fortbildungsfristen, Kosten und Material (DGUV Vorschrift 1)
 - [Ratgeber: Brandschutzhelfer: Pflicht, Zahl und Ausbildung](https://www.erstehilfe-duderstadt.de/ratgeber/brandschutzhelfer-benennen/) — § 10 ArbSchG, in der Regel 5 % (ASR A2.2), Ausbildungsinhalt, Auffrischung in der Praxis alle 2 bis 5 Jahre
 - [Ratgeber: Betriebssanitäter: Wann Pflicht, welche Ausbildung](https://www.erstehilfe-duderstadt.de/ratgeber/betriebssanitaeter/) — § 27 Abs. 1 DGUV Vorschrift 1 (1.500 / 250 bis 1.500 / Baustelle 100), Unterschied zum Ersthelfer, Grundausbildung 63 UE, Aufbaulehrgang 32 UE
