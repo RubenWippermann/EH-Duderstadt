@@ -590,18 +590,18 @@ tr:last-child td{border-bottom:0}
 .foot-brand p{color:var(--muted);font-size:.92rem;max-width:38ch}
 .foot-brand .brand{margin-bottom:16px}
 .foot-contact{display:flex;flex-direction:column;gap:0;font-size:.92rem;margin-top:16px}
-.foot-contact a,.foot-contact span{color:var(--ink-2);display:inline-flex;align-items:center;gap:9px;min-height:44px}
+.foot-contact a,.foot-contact span{color:var(--ink-2);display:inline-flex;align-items:center;gap:9px;min-height:45px}
 .foot-contact svg{width:16px;height:16px;color:var(--brand);flex:0 0 auto}
 .site-footer h3{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:700}
 .foot-col{display:flex;flex-direction:column;gap:2px}
-.foot-col a{color:var(--ink-2);font-size:.93rem;padding:9px 0;display:inline-block;min-height:44px;box-sizing:border-box}
+.foot-col a{color:var(--ink-2);font-size:.93rem;padding:9px 0;display:inline-block;min-height:45px;box-sizing:border-box}
 .foot-bottom{
   margin-top:44px;border-top:1px solid var(--line);padding:22px 0 30px;
   display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;
   font-size:.85rem;color:var(--muted);
 }
 .foot-bottom nav{display:flex;flex-wrap:wrap;gap:18px}
-.foot-bottom a{color:var(--muted);display:inline-flex;align-items:center;min-height:44px}
+.foot-bottom a{color:var(--muted);display:inline-flex;align-items:center;min-height:45px}
 .foot-legal{max-width:70ch;line-height:1.6}
 
 /* ---------- Sticky Mobile-CTA ---------- */
@@ -721,7 +721,7 @@ p,li{text-wrap:pretty}
 .form-card{border-radius:var(--r-lg);box-shadow:var(--sh-2)}
 
 /* Tippziele (≥ 44 px) für Fließtext-Links in Fuß und Rechtsleiste */
-.foot-bottom nav a,.foot-legal a{display:inline-flex;align-items:center;min-height:44px;padding-inline:4px}
+.foot-bottom nav a,.foot-legal a{display:inline-flex;align-items:center;min-height:45px;padding-inline:4px}
 @media (max-width:760px){.section{padding:clamp(56px,14vw,84px) 0}}
 
 /* Links im Fließtext unterstreichen (Lighthouse „link-in-text-block": Farbe allein reicht nicht,
