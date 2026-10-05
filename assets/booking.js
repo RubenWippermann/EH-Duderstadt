@@ -29,7 +29,7 @@
   var ORG_LEAD   = CFG.orgLead    || 'personal-paramedic';
   var ORG_FEEDS  = CFG.orgFeeds   || ['bww', 'personal-paramedic'];
   var QUELLE     = CFG.quelle     || 'erstehilfe-duderstadt';
-  var TEL        = CFG.tel        || '+49 5527 748849 5';
+  var TEL        = CFG.tel        || '+49 5527 7488495';
   var TEL_HREF   = CFG.telHref    || '+4955277488495';
 
   var MONTHS = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sep.', 'Okt.', 'Nov.', 'Dez.'];
@@ -181,10 +181,25 @@
     'Neue Termine kommen laufend dazu — oder fragt direkt einen <a href="/inhouse-kurse/">Kurs bei euch vor Ort</a> an.</p>';
 
   /* ---------- Liste mit Filter ---------- */
+  // Festes Kürzel->Name-Verzeichnis für die Lehrkräfte-Formate: der Titel des ersten Kurses
+  // einer Kursart würde sonst die ganze Option benennen (z. B. LKF als "Schwerpunkt Kindernotfälle").
+  var ARTEN_NAMEN = {
+    LK1: 'Lehrkräfte-Ausbildung — Themenbereich 1', LK2: 'Lehrkräfte-Ausbildung — Themenbereich 2',
+    LKF: 'Lehrkräfte-Fortbildung', LKFK: 'Lehrkräfte-Fortbildung — Schwerpunkt Kindernotfälle',
+    LKBSQ: 'Ausbildung Lehrkraft betrieblicher Sanitätsdienst', LKBSAS: 'Arbeitsschutzschulung Lehrkraft Betriebssanitätsdienst',
+    LBEH: 'Lehrbeauftragter Erste Hilfe', LBEHF: 'Lehrbeauftragten-Fortbildung'
+  };
+  function artOptionen(keys, arten) {
+    function opt(c) { return '<option value="' + esc(c) + '">' + esc(arten[c]) + '</option>'; }
+    var lehr = keys.filter(function (c) { return /^(LK|LB|AUS)/i.test(c); });
+    var rest = keys.filter(function (c) { return lehr.indexOf(c) < 0; });
+    return rest.map(opt).join('') +
+      (lehr.length ? '<optgroup label="Lehrkräfte &amp; Ausbilder">' + lehr.map(opt).join('') + '</optgroup>' : '');
+  }
   function renderFiltered(el, all) {
     var arten = {}, staedte = {};
     all.forEach(function (k) {
-      if (k.kursart && !arten[k.kursart]) arten[k.kursart] = label(titelAnzeige(k.titel));
+      if (k.kursart && !arten[k.kursart]) arten[k.kursart] = ARTEN_NAMEN[k.kursart] || label(titelAnzeige(k.titel));
       if (k.stadt) staedte[k.stadt] = 1;
     });
     var artKeys = Object.keys(arten).sort(function (a, b) { return arten[a].localeCompare(arten[b]); });
@@ -196,7 +211,7 @@
     if (showArt || showStadt || hasBg) {
       bar = '<div class="termine-filter">' +
         (showArt ? '<select class="tf-art" aria-label="Nach Kursart filtern"><option value="">Alle Kursarten</option>' +
-          artKeys.map(function (c) { return '<option value="' + esc(c) + '">' + esc(arten[c]) + '</option>'; }).join('') + '</select>' : '') +
+          artOptionen(artKeys, arten) + '</select>' : '') +
         (showStadt ? '<select class="tf-stadt" aria-label="Nach Ort filtern"><option value="">Alle Orte</option>' +
           stadtKeys.map(function (s) { return '<option value="' + esc(s) + '">' + esc(s) + '</option>'; }).join('') + '</select>' : '') +
         (hasBg ? '<label class="tf-bg"><input type="checkbox" class="tf-bgchk"> Nur BG/UK-abrechenbar</label>' : '') +
