@@ -35,6 +35,10 @@ Stand: 05.10.2026 (wird bei jedem Bau der Website aktualisiert). Kursseite Erste
 - [Betriebssanitäter — Grundausbildung (BSG)](https://www.erstehilfe-duderstadt.de/kurse/betriebssanitaeter-grundausbildung/): Der Kompaktblock mit Prüfung nach DGUV Grundsatz 304-002. 63 UE zzgl. Prüfung (i. d. R. 8 UE), ab 450 €.
 - [Betriebssanitäter — Aufbaulehrgang (BSA)](https://www.erstehilfe-duderstadt.de/kurse/betriebssanitaeter-aufbaulehrgang/): Der zweite Teil zur vollen Qualifikation. 32 UE zzgl. Prüfung (i. d. R. 8 UE), ab 250 €.
 - [Medizinischer Sanitätshelfer (SanH)](https://www.erstehilfe-duderstadt.de/kurse/sanitaetshelfer/): Sechs Tage bis zur qualifizierten Sanitätsausbildung. 6 Tage, ab 300 €.
+- [Lehrbeauftragter Erste Hilfe (LBEH)](https://www.erstehilfe-duderstadt.de/kurse/lehrbeauftragter-erste-hilfe/): Pädagogische Qualifizierung für alle, die Lehrkräfte ausbilden. mind. 120 UE · 14 Tage, ab 700 €.
+- [Lehrbeauftragten-Fortbildung (LBEHF)](https://www.erstehilfe-duderstadt.de/kurse/lehrbeauftragten-fortbildung/): Die Fortbildung für Lehrbeauftragte, mindestens alle drei Jahre. 24 Unterrichtseinheiten · 3 Tage, ab 150 €.
+- [Ausbildung Lehrkraft betrieblicher Sanitätsdienst (LKBSQ)](https://www.erstehilfe-duderstadt.de/kurse/lehrkraft-betrieblicher-sanitaetsdienst/): Fachdidaktische Schulung für Lehrkräfte im betrieblichen Sanitätsdienst. 16 Unterrichtseinheiten · 2 Tage, ab 100 €.
+- [Arbeitsschutzschulung Lehrkraft Betriebssanitätsdienst (LKBSAS)](https://www.erstehilfe-duderstadt.de/kurse/arbeitsschutzschulung-lehrkraft-sanitaetsdienst/): Eintägige Schulung „Sicherheit und Gesundheit im Betrieb“. 8 Unterrichtseinheiten · 1 Tag, ab 50 €.
 
 ## Region
 - [Duderstadt](https://www.erstehilfe-duderstadt.de/standorte/duderstadt/) — 37115, Landkreis Göttingen
