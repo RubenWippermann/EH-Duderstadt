@@ -1,15 +1,12 @@
 {
- "bewegung_zuletzt": "2026-10-05",
- "stand": "2026-10-05",
+ "bewegung_zuletzt": "2026-10-06",
+ "stand": "2026-10-06",
  "hashes": {
   "bww2h-ehbk-20261006": "5e894f6b445b",
-  "bww2h-lk2-20261006": "9282860a425c",
   "bww2h-eha-20261012": "eb2ce77670b5",
-  "bww2h-bsg-20261013": "7d38d44deb7d",
   "bww2h-eha-20261018": "928b13e6276a",
   "bww2h-eha-20261024": "b1a6820dcdf7",
   "bww2h-lk1-20261025": "139314be3857",
-  "bww2h-bsa-20261026": "3fa46c94dbb9",
   "bww2h-ehbk-20261027": "f4dd0853dee9",
   "bww2h-ehbk-20261110": "22602cd840f4",
   "bww2h-bh-20261111": "ce2feca2be96",
@@ -24,7 +21,6 @@
   "bww2h-ehbk-20261209": "98d903c9ca95",
   "bww2h-bh-20261210": "a81a45769fff",
   "9a07c5a0-1fa3-4645-afa1-9138944955dd": "364a0c76ec1e",
-  "bww2h-eha-20261213": "edb22e3a4249",
   "bww2h-ehb-20261219": "559604f8e086",
   "bww2h-nft-20261220": "260eef53933d",
   "bf03b542ba590e077f496aa6b403e4ac": "42ff01cdb812",
@@ -102,6 +98,9 @@
   "b3dae3938a1b7d99cc7f8c6222fbeae0": "52ddd7d81e24",
   "05d5a8ec9f1dbf59c623b963bdd4d4ed": "f87134ef6f49",
   "b6f073a6077ac7267c9ae1f3fa53ae66": "3a13ff5f9596",
-  "b61ffe7d3bf26f2d301374009105e78c": "73941f97ab30"
+  "b61ffe7d3bf26f2d301374009105e78c": "73941f97ab30",
+  "bww2h-bsg-20261013": "e2df1a1458c8",
+  "bww2h-bsa-20261026": "4d1f7de03904",
+  "bww2h-eha-20261213": "a22421330bae"
  }
 }

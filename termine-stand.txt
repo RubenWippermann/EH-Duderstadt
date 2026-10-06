@@ -1,6 +1,6 @@
-2026-10-05T18:40:18+00:00	101
+2026-10-06T11:17:43+00:00	100
 # startdate_ausgezeichnet=ja
-# bewegung_zuletzt=2026-10-05
+# bewegung_zuletzt=2026-10-06
 # unveraendert_seit_tagen=0
 # spaetester_termin=2027-12-19
 # quelle=https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1
