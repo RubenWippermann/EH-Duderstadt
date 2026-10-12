@@ -143,8 +143,8 @@
     var preis = (k.preis != null && k.preis !== '') ? esc(k.preis) + ' €' : 'auf Anfrage';
     var voll  = !!k.ausgebucht;
     // Hausregel: freie Plätze nie als Anzahl zeigen (Kapazität 20, Plätze nicht öffentlich) —
-    // unabhängig davon, ob k.freie_plaetze je belastbar wird. Immer nur "Plätze frei"/"Ausgebucht".
-    var frei  = 'Plätze frei';
+    // unabhängig davon, ob k.freie_plaetze je belastbar wird. Keine Platzaussage, nur Termin/"Ausgebucht".
+    var frei  = 'Termin ansehen / buchen';
 
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
@@ -173,7 +173,7 @@
     }
     return '<a class="termin-row" href="' + esc(url) + '"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(titelAnzeige(k.titel))) + '">' +
-      inner + '<span class="termin-cta">Platz buchen →</span></a>';
+      inner + '<span class="termin-cta">Termin ansehen / buchen →</span></a>';
   }
 
   var EMPTY =
@@ -249,6 +249,10 @@
       el.innerHTML = '<div class="termine-skeleton"><div class="sk-row"></div><div class="sk-row"></div><div class="sk-row"></div></div>';
     });
     loadFeed().then(function (all) {
+      // Gebackener Stand-Hinweis -> Live-Hinweis (gleiche Zeilenzahl, kein Layoutsprung)
+      if (!_feedFallback) Array.prototype.forEach.call(document.querySelectorAll('[data-stand]'), function (p) {
+        p.textContent = 'Live aus der Kursverwaltung.';
+      });
       Array.prototype.forEach.call(els, function (el) {
         var limitA = el.getAttribute('data-limit');
         var limit  = (!limitA || limitA === 'all') ? 0 : parseInt(limitA, 10);
@@ -449,17 +453,35 @@
   function initReviews() {
     var el = document.getElementById('bewertungen');
     if (!el) return;
+    var sec = el.closest('section');
+    function mk(tag, cls, txt) { var n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; }
     jget(API + '/api/bewertungen?org=' + encodeURIComponent(ORG_LEAD)).then(function (d) {
       var list = (d && d.bewertungen) || [];
-      if (!list.length) { var s = el.closest('section'); if (s) s.remove(); return; }
-      el.innerHTML = list.slice(0, 6).map(function (b) {
-        var stars = '★★★★★'.slice(0, Math.max(1, Math.min(5, +b.sterne || 5)));
-        return '<figure class="card"><div style="color:var(--accent);font-size:1.05rem;letter-spacing:.08em">' + stars + '</div>' +
-          '<blockquote style="margin:12px 0 14px;font-size:1rem;color:var(--ink-2)">' + esc(b.text || '') + '</blockquote>' +
-          '<figcaption class="muted" style="font-size:.87rem">' + esc(b.name || 'Teilnehmer:in') +
-          (b.ort ? ' · ' + esc(b.ort) : '') + '</figcaption></figure>';
-      }).join('');
-    }).catch(function () { var s = el.closest('section'); if (s) s.remove(); });
+      if (!list.length || !sec) return;
+      list.slice(0, 6).forEach(function (b) {
+        var fig = mk('figure', 'card');
+        var n = Math.max(1, Math.min(5, +b.sterne || 5));
+        var st = mk('div', null, '★★★★★'.slice(0, n));
+        st.setAttribute('aria-label', n + ' von 5 Sternen');
+        st.style.cssText = 'color:var(--accent);font-size:1.05rem;letter-spacing:.08em';
+        var bq = mk('blockquote'); bq.style.cssText = 'margin:12px 0 14px;font-size:1rem;color:var(--ink-2)';
+        var t = String(b.text || '');
+        if (t.length > 280) {
+          var cut = t.slice(0, 280).replace(/\s+\S*$/, '');
+          bq.appendChild(mk('p', null, cut + ' …'));
+          var det = mk('details'); det.appendChild(mk('summary', null, 'mehr lesen')); det.appendChild(mk('p', null, t));
+          bq.appendChild(det);
+        } else bq.appendChild(mk('p', null, t));
+        var cap = mk('figcaption', 'muted', String(b.name || '').trim() || 'Teilnehmer:in'); cap.style.fontSize = '.87rem';
+        fig.appendChild(st); fig.appendChild(bq); fig.appendChild(cap); el.appendChild(fig);
+      });
+      var ag = d.aggregat, ae = sec.querySelector('[data-bew-aggregat]');
+      if (ae && ag && +ag.anzahl > 0 && +ag.durchschnitt > 0) {
+        ae.textContent = 'Durchschnitt ' + (+ag.durchschnitt).toFixed(1).replace('.', ',') + ' von 5 aus ' + ag.anzahl + ' Bewertungen';
+        ae.hidden = false;
+      }
+      sec.hidden = false;
+    }).catch(function () {});
   }
 
   /* ---------- Start ---------- */

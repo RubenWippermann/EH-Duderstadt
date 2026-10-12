@@ -69,7 +69,7 @@
 }
 .kal-chip i { font-style: normal; font-weight: 700; color: var(--kal-akzent-dunkel); }
 .kal-chip.is-mehr { border-left-style: double; border-left-width: 4px; }
-.kal-chip.is-folge { opacity: .85; }
+.kal-chip.is-folge { opacity: .98; }
 .kal-chip.is-voll { border-left-color: var(--kal-voll); background: var(--kal-voll-bg); text-decoration: line-through; text-decoration-color: rgba(154,52,18,.5); }
 .kal-mehr { font-size: .72rem; font-weight: 700; color: var(--kal-akzent-dunkel); padding-left: 6px; }
 
@@ -127,3 +127,6 @@
   .kal-rein-r, .kal-rein-l, .kal-auf { animation: none; }
   .kal-btn, .kal-tag, .kal-cta { transition: none; }
 }
+
+/* Platz reservieren, bis der Kalender per JS gerendert ist (CLS) */
+[data-kalender] { min-height: 42rem; }

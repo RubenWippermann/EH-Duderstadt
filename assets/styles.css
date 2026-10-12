@@ -93,8 +93,8 @@ h3{font-size:clamp(1.16rem,1rem + .55vw,1.42rem);letter-spacing:-.016em}
 h4{font-size:1.03rem;letter-spacing:-.01em}
 p{margin:0 0 1.05em}
 a{color:var(--brand-lo);text-decoration:none;transition:color .18s var(--ease)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) a:not(.btn){color:var(--brand)}}
-:root[data-theme="dark"] a:not(.btn){color:var(--brand)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) a:not(.btn):not(.pri){color:var(--brand)}}
+:root[data-theme="dark"] a:not(.btn):not(.pri){color:var(--brand)}
 strong,b{font-weight:680;color:var(--ink)}
 small{font-size:.83rem}
 ul,ol{margin:0 0 1.1em;padding-left:1.25em}
@@ -319,8 +319,9 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
   background:var(--bg-tint);color:var(--brand-lo);font-weight:650;font-size:.87rem;white-space:nowrap;
   border:1px solid var(--o-200);cursor:pointer;transition:background .18s var(--ease),color .18s var(--ease);
 }
-.termin-row.is-full{opacity:.9}
+.termin-row.is-full{opacity:.96}
 .termin-row.is-full .termin-cta{background:transparent;border-color:var(--line);color:var(--muted)}
+.termine-stand{margin:12px 0 0;font-size:.88rem;min-height:1.5em}
 .termine-empty{padding:26px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);text-align:center;background:var(--bg-soft)}
 .termine-filter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:6px}
 .termine-filter select{
@@ -729,7 +730,7 @@ p,li{text-wrap:pretty}
 
 /* Links im Fließtext unterstreichen (Lighthouse „link-in-text-block": Farbe allein reicht nicht,
    Kontrast zum umgebenden Text < 3:1). Nur Textlinks im Inhalt, nicht Knöpfe, Karten oder Navigation. */
-main p a:not(.btn):not(.card),main li a:not(.btn):not(.card),main .faq-body a,main .note a{
+main p a:not(.btn):not(.card),main li a:not(.btn):not(.card),main .faq-body a,main .note a,main .consent a{
   text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;
 }
 main p a:not(.btn):not(.card):hover,main li a:not(.btn):not(.card):hover{text-decoration-thickness:2px}
@@ -748,3 +749,8 @@ main p a:not(.btn):not(.card):hover,main li a:not(.btn):not(.card):hover{text-de
 /* Symmetrie 05.10.2026: letzte Karte allein in der dritten Spalte-Reihe (16 Karten, 3 Spalten) mittig statt links */
 @media (min-width:961px){.g3>:last-child:nth-child(3n+1){grid-column:2}}
 @media (max-width:560px){.hero-actions,.cta-actions{flex-direction:column;align-items:stretch}}
+.route-link{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline}
+/* WCAG 2.5.8 (Klickflaeche min. 24 px): alleinstehende Textlinks (eigener Absatz/eigener Listenpunkt, Telefonnummer) */
+li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:center;min-height:24px}
+/* WCAG 2.5.8: Link-Zeile im Terminpanel (Startseite) */
+.panel-inhouse a{display:inline-flex;align-items:center;min-height:24px}
