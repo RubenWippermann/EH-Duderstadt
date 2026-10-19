@@ -176,6 +176,23 @@
       inner + '<span class="termin-cta">Termin ansehen / buchen →</span></a>';
   }
 
+  // Grosse Terminlisten in Scheiben rendern: erste Zeilen sofort (LCP/Interaktion), Rest in
+  // Leerlaufzeit. token verwirft laufende Scheiben, wenn ein Filter neu rendert.
+  var CHUNK_FIRST = 12, CHUNK = 24;
+  function fillRows(box, items, token) {
+    var idle = window.requestIdleCallback || function (fn) { return setTimeout(function () { fn({ timeRemaining: function () { return 8; } }); }, 50); };
+    box.innerHTML = items.slice(0, CHUNK_FIRST).map(rowHTML).join('');
+    var pos = CHUNK_FIRST;
+    (function next() {
+      if (pos >= items.length || box.__tok !== token) return;
+      idle(function () {
+        if (box.__tok !== token) return;
+        box.insertAdjacentHTML('beforeend', items.slice(pos, pos + CHUNK).map(rowHTML).join(''));
+        pos += CHUNK; next();
+      });
+    })();
+  }
+
   var EMPTY =
     '<p class="termine-empty">Für diesen Zeitraum sind gerade keine offenen Termine freigeschaltet. ' +
     'Neue Termine kommen laufend dazu — oder fragt direkt einen <a href="/inhouse-kurse/">Kurs bei euch vor Ort</a> an.</p>';
@@ -228,8 +245,9 @@
       var f = all.filter(function (k) {
         return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || istBgUk(k));
       });
-      rows.innerHTML = f.length ? f.map(rowHTML).join('')
-        : '<p class="termine-empty">Für diese Auswahl ist gerade nichts frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
+      var tok = rows.__tok = (rows.__tok || 0) + 1;
+      if (f.length) fillRows(rows, f, tok);
+      else rows.innerHTML = '<p class="termine-empty">Für diese Auswahl ist gerade nichts frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
       if (count) count.textContent = f.length + (f.length === 1 ? ' Termin' : ' Termine');
     }
     [artSel, stadtSel, bgChk].forEach(function (n) { if (n) n.addEventListener('change', apply); });
@@ -286,7 +304,8 @@
           return;
         }
         if (arten.length) {
-          el.innerHTML = '<div class="termine-rows">' + list.map(rowHTML).join('') + '</div>';
+          el.innerHTML = '<div class="termine-rows"></div>';
+          var box = el.firstChild; fillRows(box, list, box.__tok = 1);
           return;
         }
         renderFiltered(el, list);
