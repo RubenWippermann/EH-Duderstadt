@@ -643,8 +643,6 @@ a:hover{color:var(--brand)}
 .btn.outline-light:hover{background:rgba(255,255,255,.13);border-color:#fff;color:#fff}
 a.termin-row:hover{border-color:var(--o-300);box-shadow:var(--sh-2);transform:translateY(-2px);color:var(--ink)}
 a.termin-row:hover .termin-cta{background:linear-gradient(135deg,var(--cta-a),var(--cta-b));color:#fff;border-color:transparent}
-.termin-row{content-visibility:auto;contain-intrinsic-size:auto 76px}
-.termine-rows>*:nth-child(n+13){animation:none}
 .termin-row.is-full .termin-cta:hover{border-color:var(--brand);color:var(--brand-lo)}
 .card.hoverable:hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:var(--o-200)}
 a.card:hover{color:var(--ink)}
@@ -762,3 +760,6 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
   a.hero2-link,.panel-inhouse a,li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:center}
   footer nav[aria-label="Rechtliches"] a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
 }
+/* /kurse/-Termine: Zeilen ausserhalb des Sichtbereichs nicht layouten; Einflug-Animation nur fuer die ersten 12 (ausserhalb der Hover-Media-Query, gilt auch mobil) */
+.termin-row{content-visibility:auto;contain-intrinsic-size:auto 76px}
+.termine-rows>.termin-row:nth-child(n+13){animation:none}
