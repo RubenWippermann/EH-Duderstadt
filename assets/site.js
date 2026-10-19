@@ -144,7 +144,32 @@
     if (t) setTimeout(function () { t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 120);
   }
 
-  function boot() { initNav(); initReveal(); initKoop(); initKursartVorbelegung(); initYear(); initAnchorFocus(); }
+  /* Hero-Loop (nur wenn build.py ein <video data-hero-video> ausgibt, d. h. media/hero-duderstadt.mp4 existiert).
+     Standbild (poster) bleibt, bis geladen wird; kein Start bei Datensparmodus, langsamer Verbindung
+     oder prefers-reduced-motion. Start erst nach window load, danach höchstens HERO_LOOPS Wiederholungen. */
+  function initHeroVideo() {
+    var v = document.querySelector('video[data-hero-video]');
+    if (!v) return;
+    var HERO_LOOPS = 1;
+    var c = navigator.connection || {};
+    var langsam = /(^|-)2g$/.test(c.effectiveType || '');
+    var ruhig = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (c.saveData || langsam || ruhig) return;
+    function start() {
+      var q = v.querySelector('source[data-src]');
+      if (!q) return;
+      q.src = q.getAttribute('data-src'); q.removeAttribute('data-src');
+      var n = 0;
+      v.addEventListener('ended', function () {
+        if (n++ < HERO_LOOPS) { v.currentTime = 0; v.play().catch(function () {}); }
+      });
+      v.load();
+      v.play().catch(function () {});
+    }
+    if (document.readyState === 'complete') start(); else window.addEventListener('load', start, { once: true });
+  }
+
+  function boot() { initHeroVideo(); initNav(); initReveal(); initKoop(); initKursartVorbelegung(); initYear(); initAnchorFocus(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();

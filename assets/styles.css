@@ -756,3 +756,9 @@ main p a:not(.btn):not(.card):hover,main li a:not(.btn):not(.card):hover{text-de
 li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:center;min-height:24px}
 /* WCAG 2.5.8: Link-Zeile im Terminpanel (Startseite) */
 .panel-inhouse a{display:inline-flex;align-items:center;min-height:24px}
+/* Touch-Ziele mobil mind. 44 px (WCAG 2.5.8 AAA / Apple HIG); Padding/Min-Höhe statt Layout-Umbau */
+@media (max-width:767px){
+  a.nav-tel,a.chip,a.hero2-link,.panel-inhouse a,li>a:only-child,p>a:only-child,a[href^="tel:"],.foot-contact a,details>summary{min-height:44px}
+  a.hero2-link,.panel-inhouse a,li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:center}
+  footer nav[aria-label="Rechtliches"] a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
+}
