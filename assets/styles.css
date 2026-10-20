@@ -761,5 +761,8 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
   footer nav[aria-label="Rechtliches"] a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
 }
 /* /kurse/-Termine: Zeilen ausserhalb des Sichtbereichs nicht layouten; Einflug-Animation nur fuer die ersten 12 (ausserhalb der Hover-Media-Query, gilt auch mobil) */
-.termin-row{content-visibility:auto;contain-intrinsic-size:auto 76px}
+.termin-row{content-visibility:auto;contain-intrinsic-size:auto 48px}
+@media (max-width:1199px){.termin-row{contain-intrinsic-size:auto 72px}}
+@media (max-width:900px){.termin-row{contain-intrinsic-size:auto 128px}}
+@media (max-width:720px){.termin-row{contain-intrinsic-size:auto 192px}}
 .termine-rows>.termin-row:nth-child(n+13){animation:none}
