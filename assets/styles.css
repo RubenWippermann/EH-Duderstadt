@@ -766,4 +766,6 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
 @media (max-width:1199px){.termin-row{contain-intrinsic-size:auto 72px}}
 @media (max-width:900px){.termin-row{contain-intrinsic-size:auto 128px}}
 @media (max-width:720px){.termin-row{contain-intrinsic-size:auto 192px}}
+/* letzte Zeile immer in echter Hoehe: kein Ueberlappen mit der Stand-Zeile darunter, wenn die Schaetzhoehe zu klein ist */
+.termine-rows>.termin-row:last-child{content-visibility:visible}
 .termine-rows>.termin-row:nth-child(n+13){animation:none}
