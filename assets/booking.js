@@ -132,6 +132,43 @@
     return _feed;
   }
 
+  /* ---------- Herkunft: utm_*-Durchreichen an Links der Software (/buchen, /inhouse) ----------
+     Kommt der Besucher mit utm_* in der URL, werden genau diese Parameter an die Software-Links gehängt
+     (Attribution, keine Speicherung in der Seite). Nie eigene utm_* setzen; erlaubt nur a-z, 0-9 und -,
+     höchstens 80 Zeichen (ungültige Werte werden verworfen, nicht verändert); vorhandene Parameter bleiben. */
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  var UTM = (function () {
+    var out = [];
+    try {
+      var q = new URLSearchParams(location.search);
+      UTM_KEYS.forEach(function (k) {
+        var v = q.get(k);
+        if (v && /^[a-z0-9-]{1,80}$/.test(v)) out.push([k, v]);
+      });
+    } catch (e) {}
+    return out;
+  })();
+  function withUtm(url) {
+    if (!url || !UTM.length) return url;
+    UTM.forEach(function (kv) {
+      if (url.indexOf(kv[0] + '=') === -1) url += (url.indexOf('?') !== -1 ? '&' : '?') + kv[0] + '=' + encodeURIComponent(kv[1]);
+    });
+    return url;
+  }
+  // Bereits im HTML stehende Links zur Software (/buchen, /inhouse): vorhandene utm_* ergänzen.
+  function decorateLinks() {
+    if (!UTM.length) return;
+    var apiHost = API.replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+    Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
+      var h = a.getAttribute('href') || '';
+      var m = /^https?:\/\/([^\/?#]+)(\/[^?#]*)?/.exec(h);
+      if (!m || m[1] !== apiHost || !/^\/(buchen|inhouse)/.test(m[2] || '')) return;
+      var hash = ''; var i = h.indexOf('#');
+      if (i !== -1) { hash = h.slice(i); h = h.slice(0, i); }
+      a.setAttribute('href', withUtm(h) + hash);
+    });
+  }
+
   /* ---------- Rendering einer Termin-Zeile ---------- */
   function rowHTML(k) {
     var tags = [k.stadt];
@@ -171,6 +208,7 @@
     if (url.indexOf('quelle_pfad=') === -1) {
       url += '&quelle_pfad=' + encodeURIComponent(location.pathname);
     }
+    url = withUtm(url);
     return '<a class="termin-row" href="' + esc(url) + '"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(titelAnzeige(k.titel))) + '">' +
       inner + '<span class="termin-cta">Termin ansehen / buchen →</span></a>';
@@ -504,7 +542,7 @@
   }
 
   /* ---------- Start ---------- */
-  function boot() { initTermine(); initCounters(); wireForms(); wireWaitlist(); initReviews(); }
+  function boot() { decorateLinks(); initTermine(); initCounters(); wireForms(); wireWaitlist(); initReviews(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();
