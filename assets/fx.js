@@ -197,6 +197,36 @@
     });
   }
 
+  /* Ortschips: gestaffelter Eintritt (translateY 8 px / Deckkraft), max. 8 Chips, 40 ms Abstand.
+     Nur transform/opacity; aus bei saveData/2g (reduced-motion bricht schon oben ab).
+     Sicherheitsnetz: nach 900 ms stehen alle Chips im Blickfeld im Endzustand, nach 4 s alle. */
+  (function () {
+    var con = navigator.connection;
+    if (con && (con.saveData || /(^|-)2g$/.test(con.effectiveType || ""))) return;
+    $$(".chips").forEach(function (box) {
+      var chips = $$(".chip", box).slice(0, 8);
+      if (!chips.length) return;
+      chips.forEach(function (ch, i) { ch.style.setProperty("--i", i); });
+      box.classList.add("chips-stag");
+      var done = false;
+      function go() {
+        if (done) return;
+        done = true;
+        box.classList.add("chips-go");
+        setTimeout(function () { box.classList.remove("chips-stag", "chips-go"); }, chips.length * 40 + 600);
+      }
+      function sichtbar() { var r = box.getBoundingClientRect(); return r.top < window.innerHeight && r.bottom > 0; }
+      if (hasIO) {
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); go(); } });
+        });
+        io.observe(box);
+      } else { go(); }
+      setTimeout(function () { if (sichtbar()) go(); }, 900);
+      setTimeout(go, 4000);
+    });
+  })();
+
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
   onScroll();

@@ -845,3 +845,13 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
   .hero2-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
   .hero2-video{max-height:360px}
 }
+
+/* Kurskarten-Icon (gezeichnet, dekorativ) + Hover-Lift nur mit Maus, nicht bei reduzierter Bewegung */
+.k-icon{display:block;width:56px;height:56px;margin:0 0 12px;border-radius:12px;box-shadow:0 0 0 1px var(--line);transition:transform .18s var(--ease)}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){a.kurs-card:hover .k-icon{transform:translateY(-2px)}}
+
+/* Ortschips: gestaffelter Eintritt (fx.js setzt chips-stag/chips-go; ohne JS und bei reduzierter Bewegung unverändert sichtbar) */
+@media (prefers-reduced-motion:no-preference){
+  .chips-stag .chip{transition:opacity .36s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*40ms),transform .36s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*40ms),border-color .18s var(--ease),color .18s var(--ease),background .18s var(--ease)}
+  .chips-stag:not(.chips-go) .chip{opacity:.01;transform:translateY(8px)}
+}
