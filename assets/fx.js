@@ -92,6 +92,14 @@
           } else if (c.nodeType === 1) split(c);
         });
       })(h1);
+      /* Wortweiser Auftritt nur als Verfeinerung: Text bleibt lesbar (Startzustand .55 Deckkraft), aus bei saveData/2g,
+         Sicherheitsnetz: nach 1 s steht alles im Endzustand. */
+      var con = navigator.connection;
+      if (!(con && (con.saveData || /(^|-)2g$/.test(con.effectiveType || "")))) {
+        h1.classList.add("fx-pre");
+        raf(function () { raf(function () { h1.classList.remove("fx-pre"); }); });
+        setTimeout(function () { h1.classList.remove("fx-pre"); h1.classList.add("fx-done"); }, 1000);
+      }
     }
   }
 

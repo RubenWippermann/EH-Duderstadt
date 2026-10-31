@@ -29,9 +29,11 @@
   @media (max-width: 760px) { .fx-fachwerk { width: 70%; top: 2%; opacity: .14; } }
 
 
-  .fx-word { display: inline-block; white-space: normal; max-width: 100%; overflow-wrap: anywhere; opacity: 0; transform: translate3d(0, .6em, 0); filter: blur(7px);
-    animation: fx-word-in 900ms cubic-bezier(.16,1,.3,1) forwards; animation-delay: calc(140ms + var(--i) * 85ms); }
-  @keyframes fx-word-in { to { opacity: 1; transform: none; filter: blur(0); } }
+  /* H1: Text ist von Anfang an sichtbar und lesbar. Der wortweise Auftritt ist nur Verfeinerung:
+     Startzustand .55 Deckkraft + 0,3 em tiefer (fx-pre, von fx.js gesetzt), Übergang über transform/opacity, kein Blur. */
+  .fx-word { display: inline-block; white-space: normal; max-width: 100%; overflow-wrap: anywhere; }
+  .fx-split.fx-pre .fx-word { opacity: .55; transform: translate3d(0, .3em, 0); }
+  .fx-split:not(.fx-pre):not(.fx-done) .fx-word { transition: opacity 520ms cubic-bezier(.16,1,.3,1) calc(var(--i) * 60ms), transform 520ms cubic-bezier(.16,1,.3,1) calc(var(--i) * 60ms); }
   .fx-on :is(.hero, .page-hero) :is(.eyebrow, .hero-sub, .hero-actions, .hero-trust, .hero-panel, .lead) {
     opacity: 0; transform: translate3d(0, 18px, 0); animation: fx-up 900ms cubic-bezier(.16,1,.3,1) forwards; }
   .fx-on :is(.hero, .page-hero) .eyebrow { animation-delay: 60ms; }
@@ -39,7 +41,6 @@
   .fx-on :is(.hero, .page-hero) .hero-actions { animation-delay: 860ms; }
   .fx-on :is(.hero, .page-hero) .hero-trust { animation-delay: 980ms; }
   .fx-on :is(.hero, .page-hero) .hero-panel { animation-delay: 420ms; }
-  .fx-on :is(.hero, .page-hero) h1:not(.fx-split) { opacity: 0; }
   @keyframes fx-up { to { opacity: 1; transform: none; } }
 
   /* ---------- Live-Punkt: Puls-Ringe ---------- */
