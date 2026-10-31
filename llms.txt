@@ -4,6 +4,8 @@
 
 Stand: 31.10.2026 (wird bei jedem Bau der Website aktualisiert). Kursseite Erste-Hilfe-Ausbildung (Führerschein, Betrieb): https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-ausbildung/
 
+Ausführliche Fassung: https://www.erstehilfe-duderstadt.de/llms-full.txt
+
 ## Kernfakten
 - Personal Paramedic e.K. ist eine für Erste Hilfe ermächtigte Ausbildungsstätte mit DGUV-Kennziffer 8.2018 (§ 26 Abs. 2 DGUV Vorschrift 1).
 - Betriebliche Ersthelfer müssen spätestens alle zwei Jahre fortgebildet werden (§ 26 Abs. 3 DGUV Vorschrift 1).
@@ -27,7 +29,7 @@ Stand: 31.10.2026 (wird bei jedem Bau der Website aktualisiert). Kursseite Erste
 - [Erste-Hilfe-Fortbildung (EHF)](https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-fortbildung/): Die Auffrischung für betriebliche Ersthelfer — alle zwei Jahre fällig. 9 Unterrichtseinheiten · 1 Tag, ab 50 €.
 - [Erste Hilfe für Bildungs- & Betreuungseinrichtungen (EHB)](https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-bildungseinrichtungen/): Speziell für Kita, Schule, Hort und Tagespflege. 9 Unterrichtseinheiten · 1 Tag, ab 50 €.
 - [Erste Hilfe für Babys & Kleinkinder (EHBK)](https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-baby-kind/): Der Abendkurs für Eltern, Großeltern und Paten. kompakter Abendkurs, ab 50 €.
-- [Brandschutzhelfer (BH)](https://www.erstehilfe-duderstadt.de/kurse/brandschutzhelfer/): Pflicht in jedem Betrieb — Theorie plus Löschübung. ca. 4 Stunden · Theorie & Praxis, ab 50 €.
+- [Brandschutzhelfer (BH)](https://www.erstehilfe-duderstadt.de/kurse/brandschutzhelfer/): Pflicht in jedem Betrieb — Theorie plus Löschübung. 4 UE · Theorie & Praxis, ab 50 €.
 - [Notfalltraining (NFT)](https://www.erstehilfe-duderstadt.de/kurse/notfalltraining/): Für Praxen, Pflege und Teams mit echtem Notfallrisiko. 4 Stunden · praxisorientiert, ab 50 €.
 - [Lehrkräfte-Ausbildung — Themenbereich 1 (LK1)](https://www.erstehilfe-duderstadt.de/kurse/lehrkraefte-ausbildung-tb1/): Der Einstieg zur Ausbilderqualifikation Erste Hilfe. 3 Tage, ab 150 €.
 - [Lehrkräfte-Ausbildung — Themenbereich 2 (LK2)](https://www.erstehilfe-duderstadt.de/kurse/lehrkraefte-ausbildung-tb2/): Der fachliche Aufbau bis zur eigenständigen Kursleitung. 4 Tage, ab 200 €.

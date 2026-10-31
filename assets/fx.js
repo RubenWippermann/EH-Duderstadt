@@ -89,19 +89,6 @@
         });
       })(h1);
     }
-    if (fine) {
-      var spot = doc.createElement("div");
-      spot.className = "fx-spot";
-      spot.setAttribute("aria-hidden", "true");
-      hero.insertBefore(spot, sun.nextSibling);
-      hero.addEventListener("pointermove", function (e) {
-        var r = hero.getBoundingClientRect();
-        spot.style.setProperty("--sx", e.clientX - r.left + "px");
-        spot.style.setProperty("--sy", e.clientY - r.top + "px");
-        hero.classList.add("fx-hot");
-      }, { passive: true });
-      hero.addEventListener("pointerleave", function () { hero.classList.remove("fx-hot"); });
-    }
   }
 
   $$(".hero h1, .page-hero h1").forEach(function (h) { h.classList.add("fx-split"); });

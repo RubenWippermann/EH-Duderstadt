@@ -22,20 +22,12 @@
   .fx-hero > .wrap { position: relative; z-index: 1; }
   .page-hero .fx-fachwerk { display: none; }
   .fx-sun { position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-  .fx-sun::before { content: ""; position: absolute; left: -12%; right: -12%; bottom: -55%; height: 120%;
-    background: radial-gradient(closest-side, rgba(255,176,32,.22), rgba(249,115,22,.12) 45%, rgba(234,88,12,0) 72%);
-    transform-origin: 50% 100%; opacity: 0; animation: fx-sunrise 2200ms cubic-bezier(.16,1,.3,1) 150ms forwards, fx-breathe 9s ease-in-out 2.4s infinite alternate; }
-  @keyframes fx-sunrise { from { opacity: 0; transform: translate3d(0, 30%, 0) scale(.7); } to { opacity: 1; transform: none; } }
-  @keyframes fx-breathe { from { transform: scale(1); } to { transform: scale(1.08) translate3d(0, -2%, 0); } }
   .fx-fachwerk { position: absolute; right: -2%; top: 6%; width: min(46%, 560px); height: auto; color: #EA580C; opacity: .22;
     clip-path: inset(0 100% 0 0); animation: fx-draw 2600ms cubic-bezier(.5,0,.2,1) 400ms forwards; }
   .fx-fachwerk path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: square; }
   @keyframes fx-draw { to { clip-path: inset(0); } }
   @media (max-width: 760px) { .fx-fachwerk { width: 70%; top: 2%; opacity: .14; } }
 
-  .fx-spot { position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0; transition: opacity 500ms ease;
-    background: radial-gradient(480px circle at var(--sx, 60%) var(--sy, 40%), rgba(251,146,60,.20), rgba(251,146,60,0) 62%); }
-  .fx-hero.fx-hot .fx-spot { opacity: 1; }
 
   .fx-word { display: inline-block; white-space: normal; max-width: 100%; overflow-wrap: anywhere; opacity: 0; transform: translate3d(0, .6em, 0); filter: blur(7px);
     animation: fx-word-in 900ms cubic-bezier(.16,1,.3,1) forwards; animation-delay: calc(140ms + var(--i) * 85ms); }
@@ -112,5 +104,5 @@
 
 /* Touch-Geräte: keine Maus-Effekte */
 @media (hover: none), (pointer: coarse) {
-  .fx-spot, .fx-glare { display: none !important; }
+  .fx-glare { display: none !important; }
 }

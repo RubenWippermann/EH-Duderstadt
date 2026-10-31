@@ -169,6 +169,14 @@
     });
   }
 
+  /* ---------- Veranstalter-Hinweis BWW (Fremdbuchung): Block über jeder Terminliste + Kurzzeile je Zeile ---------- */
+  var BWW_NAME = 'BWW UG (haftungsbeschränkt)';
+  var BWW_BLOCK = '<p class="termine-veranst">Veranstalter: ' + BWW_NAME + ', Worbiser Straße 2, 37115 Duderstadt. ' +
+    '<a href="https://www.multiplikatorenstelle.de/impressum/" rel="noopener">Impressum des Veranstalters</a>. Es gelten die ' +
+    '<a href="https://www.multiplikatorenstelle.de/agb/" rel="noopener">AGB</a> und die ' +
+    '<a href="https://www.multiplikatorenstelle.de/widerruf/" rel="noopener">Widerrufsbelehrung</a> des Veranstalters. ' +
+    'Preis je Termin laut Zeile. Diese Website vermittelt den Kurs im Namen des Veranstalters.</p>';
+
   /* ---------- Rendering einer Termin-Zeile ---------- */
   function rowHTML(k) {
     var tags = [k.stadt];
@@ -185,7 +193,7 @@
 
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
-      '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small></span>' +
+      '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small><small class="termin-veranst">Veranstalter: ' + BWW_NAME + '</small></span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : frei) + '</small></span>';
 
     if (voll) {
@@ -272,7 +280,7 @@
         (hasBg ? '<label class="tf-bg"><input type="checkbox" class="tf-bgchk"> Nur BG/UK-abrechenbar</label>' : '') +
         '<span class="tf-count" aria-live="polite"></span></div>';
     }
-    el.innerHTML = bar + '<div class="termine-rows"></div>';
+    el.innerHTML = BWW_BLOCK + bar + '<div class="termine-rows"></div>';
 
     var artSel = el.querySelector('.tf-art'), stadtSel = el.querySelector('.tf-stadt'),
         bgChk = el.querySelector('.tf-bgchk'), rows = el.querySelector('.termine-rows'),
@@ -338,12 +346,12 @@
             ? '<p class="termine-empty">Diese Termine sind belegt — ' +
               '<a href="/kontakt/#nachricht">schreib uns</a>, wir finden einen Platz.</p>'
             : '';
-          el.innerHTML = hinweis + '<div class="termine-rows">' + auswahl.map(rowHTML).join('') + '</div>';
+          el.innerHTML = BWW_BLOCK + hinweis + '<div class="termine-rows">' + auswahl.map(rowHTML).join('') + '</div>';
           return;
         }
         if (arten.length) {
-          el.innerHTML = '<div class="termine-rows"></div>';
-          var box = el.firstChild; fillRows(box, list, box.__tok = 1);
+          el.innerHTML = BWW_BLOCK + '<div class="termine-rows"></div>';
+          var box = el.querySelector('.termine-rows'); fillRows(box, list, box.__tok = 1);
           return;
         }
         renderFiltered(el, list);

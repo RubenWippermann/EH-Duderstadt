@@ -1,0 +1,47 @@
+# Erste Hilfe Duderstadt — ausführliche Fassung
+
+> Personal Paramedic e.K. bietet Erste-Hilfe-Kurse und verwandte Qualifizierungen im Eichsfeld, Südharz und Raum Göttingen an. Ausschließlich Präsenzkurse.
+
+Stand: 31.10.2026 (wird bei jedem Bau der Website aktualisiert). Kurzfassung: https://www.erstehilfe-duderstadt.de/llms.txt
+
+## Anbieter und Kontakt
+- Anbieter: Personal Paramedic e.K., Amtsgericht Düsseldorf · HRA 27786. DGUV-Kennziffer der ermächtigten Stelle: 8.2018.
+- Niederlassung Duderstadt: Worbiser Straße 2, 37115 Duderstadt.
+- Telefon: +49 5527 7488495 · E-Mail: info@erstehilfe-duderstadt.de
+- Anfrage und Terminübersicht: https://www.erstehilfe-duderstadt.de/kontakt/ · https://www.erstehilfe-duderstadt.de/kalender/
+
+## Kursformate
+- Offene Kurse: einzeln buchbar, Kursraum in Leinefelde-Worbis; Termine und Preise stehen live im Kalender.
+- Inhouse-Kurse: wir kommen mit Material in den Betrieb, die Kita, die Schule oder den Verein; Preis auf Anfrage, weil er von Gruppengröße und Ort abhängt.
+
+## Kurse und Preise (offene Termine, ab-Preise pro Person)
+- [Erste-Hilfe-Ausbildung](https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-ausbildung/) — Der Grundkurs — für Führerschein, Betrieb und Alltag. Umfang: 9 Unterrichtseinheiten · 1 Tag. Preis: ab 30 € pro Person bei offenen Terminen.
+- [Erste-Hilfe-Fortbildung](https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-fortbildung/) — Die Auffrischung für betriebliche Ersthelfer — alle zwei Jahre fällig. Umfang: 9 Unterrichtseinheiten · 1 Tag. Preis: ab 50 € pro Person bei offenen Terminen.
+- [Erste Hilfe für Bildungs- & Betreuungseinrichtungen](https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-bildungseinrichtungen/) — Speziell für Kita, Schule, Hort und Tagespflege. Umfang: 9 Unterrichtseinheiten · 1 Tag. Preis: ab 50 € pro Person bei offenen Terminen.
+- [Erste Hilfe für Babys & Kleinkinder](https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-baby-kind/) — Der Abendkurs für Eltern, Großeltern und Paten. Umfang: kompakter Abendkurs. Preis: ab 50 € pro Person bei offenen Terminen.
+- [Brandschutzhelfer](https://www.erstehilfe-duderstadt.de/kurse/brandschutzhelfer/) — Pflicht in jedem Betrieb — Theorie plus Löschübung. Umfang: 4 UE · Theorie & Praxis. Preis: ab 50 € pro Person bei offenen Terminen.
+- [Notfalltraining](https://www.erstehilfe-duderstadt.de/kurse/notfalltraining/) — Für Praxen, Pflege und Teams mit echtem Notfallrisiko. Umfang: 4 Stunden · praxisorientiert. Preis: ab 50 € pro Person bei offenen Terminen.
+- [Lehrkräfte-Ausbildung — Themenbereich 1](https://www.erstehilfe-duderstadt.de/kurse/lehrkraefte-ausbildung-tb1/) — Der Einstieg zur Ausbilderqualifikation Erste Hilfe. Umfang: 3 Tage. Preis: ab 150 € pro Person bei offenen Terminen.
+- [Lehrkräfte-Ausbildung — Themenbereich 2](https://www.erstehilfe-duderstadt.de/kurse/lehrkraefte-ausbildung-tb2/) — Der fachliche Aufbau bis zur eigenständigen Kursleitung. Umfang: 4 Tage. Preis: ab 200 € pro Person bei offenen Terminen.
+- [Lehrkräfte-Fortbildung](https://www.erstehilfe-duderstadt.de/kurse/lehrkraefte-fortbildung/) — Die Pflichtfortbildung für Erste-Hilfe-Lehrkräfte. Umfang: 16 Unterrichtseinheiten · 2 Tage. Preis: ab 100 € pro Person bei offenen Terminen.
+- [Betriebssanitäter — Grundausbildung](https://www.erstehilfe-duderstadt.de/kurse/betriebssanitaeter-grundausbildung/) — Der Kompaktblock mit Prüfung nach DGUV Grundsatz 304-002. Umfang: 63 UE zzgl. Prüfung (i. d. R. 8 UE). Preis: ab 450 € pro Person bei offenen Terminen.
+- [Betriebssanitäter — Aufbaulehrgang](https://www.erstehilfe-duderstadt.de/kurse/betriebssanitaeter-aufbaulehrgang/) — Der zweite Teil zur vollen Qualifikation. Umfang: 32 UE zzgl. Prüfung (i. d. R. 8 UE). Preis: ab 250 € pro Person bei offenen Terminen.
+- [Medizinischer Sanitätshelfer](https://www.erstehilfe-duderstadt.de/kurse/sanitaetshelfer/) — Sechs Tage bis zur qualifizierten Sanitätsausbildung. Umfang: 6 Tage. Preis: ab 300 € pro Person bei offenen Terminen.
+- [Lehrbeauftragter Erste Hilfe](https://www.erstehilfe-duderstadt.de/kurse/lehrbeauftragter-erste-hilfe/) — Pädagogische Qualifizierung für alle, die Lehrkräfte ausbilden. Umfang: mind. 120 UE · 14 Tage. Preis: ab 700 € pro Person bei offenen Terminen.
+- [Lehrbeauftragten-Fortbildung](https://www.erstehilfe-duderstadt.de/kurse/lehrbeauftragten-fortbildung/) — Die Fortbildung für Lehrbeauftragte, mindestens alle drei Jahre. Umfang: 24 Unterrichtseinheiten · 3 Tage. Preis: ab 150 € pro Person bei offenen Terminen.
+- [Ausbildung Lehrkraft betrieblicher Sanitätsdienst](https://www.erstehilfe-duderstadt.de/kurse/lehrkraft-betrieblicher-sanitaetsdienst/) — Fachdidaktische Schulung für Lehrkräfte im betrieblichen Sanitätsdienst. Umfang: 16 Unterrichtseinheiten · 2 Tage. Preis: ab 100 € pro Person bei offenen Terminen.
+- [Arbeitsschutzschulung Lehrkraft Betriebssanitätsdienst](https://www.erstehilfe-duderstadt.de/kurse/arbeitsschutzschulung-lehrkraft-sanitaetsdienst/) — Eintägige Schulung „Sicherheit und Gesundheit im Betrieb“. Umfang: 8 Unterrichtseinheiten · 1 Tag. Preis: ab 50 € pro Person bei offenen Terminen.
+
+## Einzugsgebiet für Inhouse-Kurse
+- Orte mit eigener Seite oder Erwähnung: Duderstadt, Leinefelde-Worbis, Göttingen, Heilbad Heiligenstadt, Herzberg am Harz, Osterode am Harz, Northeim, Bad Lauterberg im Harz, Dingelstädt, Bad Sachsa; außerdem Eichsfeld, Südharz und Raum Göttingen.
+
+## Häufige Fragen
+- Wer zahlt den Kurs? Die Lehrgangsgebühren für betriebliche Ersthelfer trägt in der Regel der zuständige Unfallversicherungsträger (§ 23 Abs. 2 SGB VII); Selbstzahler zahlen den genannten Preis.
+- Wie oft muss aufgefrischt werden? Betriebliche Ersthelfer spätestens alle zwei Jahre (§ 26 Abs. 3 DGUV Vorschrift 1).
+- Wie lang ist der Führerschein-Kurs? 9 Unterrichtseinheiten, gültig für alle Klassen (§ 19 FeV).
+- Gibt es Online-Kurse? Nein, alle Kurse finden in Präsenz statt.
+- Gibt es eine Bescheinigung? Ja, sie wird am Kurstag digital ausgestellt.
+
+## Weitere Quellen auf dieser Website
+- Ratgeber: https://www.erstehilfe-duderstadt.de/ratgeber/
+- Impressum: https://www.erstehilfe-duderstadt.de/impressum/ · Datenschutz: https://www.erstehilfe-duderstadt.de/datenschutz/

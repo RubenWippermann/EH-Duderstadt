@@ -322,7 +322,7 @@
         '<div><dt>Uhrzeit</dt><dd>' + zeit + '</dd></div>' +
         (ort ? '<div><dt>Ort</dt><dd>' + esc(ort) + '</dd></div>' : '') +
         '<div><dt>Preis</dt><dd>' + preisText(k.preis) + '</dd></div>' +
-        (this.zeigeVeranstalter && k._veranstalter ? '<div><dt>Veranstalter</dt><dd>' + esc(k._veranstalter) + '</dd></div>' : '') +
+        (k._org === 'bww' ? '<div><dt>Veranstalter</dt><dd>BWW UG (haftungsbeschränkt)</dd></div>' : (this.zeigeVeranstalter && k._veranstalter ? '<div><dt>Veranstalter</dt><dd>' + esc(k._veranstalter) + '</dd></div>' : '')) +
       '</dl><div class="kal-aktion">' + aktion + '</div></article>';
   };
 
