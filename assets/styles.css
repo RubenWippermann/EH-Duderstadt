@@ -809,6 +809,7 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
   .termine-rows>.termin-row:nth-child(-n+12){-webkit-backdrop-filter:var(--glas-blur-karte);backdrop-filter:var(--glas-blur-karte)}
   /* kein Glas auf Glas: Zeilen und Karten innerhalb von Panels/Karten bleiben deckend */
   .hero-panel .termin-row,.hero-panel .card,.card .card,.card .termin-row,.form-card .card{background:var(--card);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;border-color:var(--line)}
+  .hero-panel .termine-rows>.termin-row,.card .termine-rows>.termin-row,.form-card .termine-rows>.termin-row{-webkit-backdrop-filter:none;backdrop-filter:none}
 }
 /* „Transparenz reduzieren": zurück auf die deckenden Flächen (Browser ohne diese Abfrage zeigen das Glas) */
 @media (prefers-reduced-transparency:reduce){
