@@ -519,8 +519,13 @@
         var fig = mk('figure', 'card');
         var n = Math.max(1, Math.min(5, +b.sterne || 5));
         var st = mk('div', null, '★★★★★'.slice(0, n));
+        st.setAttribute('role', 'img');
         st.setAttribute('aria-label', n + ' von 5 Sternen');
-        st.style.cssText = 'color:var(--accent);font-size:1.05rem;letter-spacing:.08em';
+        // Sterne in --warn (≥ 3:1 auf Weiß/Glas, Grafikkontrast) + sichtbares Textäquivalent in --muted (≥ 4,5:1)
+        st.style.cssText = 'color:var(--warn);font-size:1.05rem;letter-spacing:.08em';
+        var wert = mk('span', null, n + ' von 5'); wert.setAttribute('aria-hidden', 'true');
+        wert.style.cssText = 'color:var(--muted);font-size:.82rem;letter-spacing:0;font-weight:600;margin-left:10px';
+        var kopf = mk('div'); kopf.style.cssText = 'display:flex;align-items:center;flex-wrap:wrap'; kopf.appendChild(st); kopf.appendChild(wert);
         var bq = mk('blockquote'); bq.style.cssText = 'margin:12px 0 14px;font-size:1rem;color:var(--ink-2)';
         var t = String(b.text || '');
         if (t.length > 280) {
@@ -530,7 +535,7 @@
           bq.appendChild(det);
         } else bq.appendChild(mk('p', null, t));
         var cap = mk('figcaption', 'muted', String(b.name || '').trim() || 'Teilnehmer:in'); cap.style.fontSize = '.87rem';
-        fig.appendChild(st); fig.appendChild(bq); fig.appendChild(cap); el.appendChild(fig);
+        fig.appendChild(kopf); fig.appendChild(bq); fig.appendChild(cap); el.appendChild(fig);
       });
       var ag = d.aggregat, ae = sec.querySelector('[data-bew-aggregat]');
       if (ae && ag && +ag.anzahl > 0 && +ag.durchschnitt > 0) {
