@@ -769,3 +769,56 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
 /* letzte Zeile immer in echter Hoehe: kein Ueberlappen mit der Stand-Zeile darunter, wenn die Schaetzhoehe zu klein ist */
 .termine-rows>.termin-row:last-child{content-visibility:visible}
 .termine-rows>.termin-row:nth-child(n+13){animation:none}
+
+/* ═══ GLAS-OPTIK (CD-Richtlinie Software Kap. 13, Ruben 31.10.2026; nur Tokens + CSS, keine Logik) ═══
+   Glas auf Kopfzeile, Sticky-CTA, Hero-Panel, Karten/Terminkarten, Formular-Karte; CTA-Band und Knöpfe behalten den
+   Orange-Verlauf (nur Lichtkante); Eingabefelder bleiben deckend (nur Lichtkante). Akzent = Orange der Marke (#EA580C Fläche,
+   #C2410C Schrift), keine neue Farbe. Kein Glas auf Glas, Fokus und Fehler haben Vorrang, aus bei „Transparenz reduzieren",
+   im Druck deckend. Die deckenden Flächen oben im Stylesheet sind der Fallback. */
+:root{
+  --glas-blur:blur(26px) saturate(1.6); --glas-blur-karte:blur(18px) saturate(1.4);
+  --glas-fuell:rgba(255,255,255,.92); --glas-fuell-nav:rgba(255,255,255,.92);
+  --glas-licht:inset 0 1px 0 rgba(255,255,255,.95); --glas-kante:rgba(28,25,23,.08);
+  --glas-grund:radial-gradient(900px 520px at 8% -4%,rgba(234,88,12,.09),transparent 70%),radial-gradient(760px 480px at 96% 6%,rgba(255,176,32,.11),transparent 70%);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --glas-fuell:rgba(29,23,20,.90); --glas-fuell-nav:rgba(21,16,13,.90);
+    --glas-licht:inset 0 1px 0 rgba(255,255,255,.08); --glas-kante:rgba(255,255,255,.10);
+    --glas-grund:radial-gradient(900px 520px at 8% -4%,rgba(251,146,60,.12),transparent 70%),radial-gradient(760px 480px at 96% 6%,rgba(255,176,32,.08),transparent 70%);
+  }
+}
+:root[data-theme="dark"]{
+  --glas-fuell:rgba(29,23,20,.90); --glas-fuell-nav:rgba(21,16,13,.90);
+  --glas-licht:inset 0 1px 0 rgba(255,255,255,.08); --glas-kante:rgba(255,255,255,.10);
+  --glas-grund:radial-gradient(900px 520px at 8% -4%,rgba(251,146,60,.12),transparent 70%),radial-gradient(760px 480px at 96% 6%,rgba(255,176,32,.08),transparent 70%);
+}
+/* Lichtkante an Knöpfen und Feldern (Fokus und Fehler haben Vorrang) */
+.btn.primary:not(:focus-visible),.nav-cta:not(:focus-visible),.sticky-cta a.pri:not(:focus-visible){box-shadow:inset 0 1px 0 rgba(255,255,255,.30),var(--sh-brand)}
+.field input:not(:focus):not(:focus-visible):not([aria-invalid="true"]),.field select:not(:focus):not(:focus-visible):not([aria-invalid="true"]),.field textarea:not(:focus):not(:focus-visible):not([aria-invalid="true"]){box-shadow:var(--glas-licht)}
+.cta-band{border:1px solid rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),var(--sh-3)}
+@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  body{background:var(--glas-grund),var(--bg);background-repeat:no-repeat}
+  .site-header{background:var(--glas-fuell-nav);-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur);box-shadow:0 1px 0 var(--glas-kante)}
+  .site-header.is-stuck{box-shadow:0 1px 0 var(--glas-kante),0 10px 30px -18px rgba(124,45,18,.22)}
+  .sticky-cta{background:var(--glas-fuell-nav);-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur);border-top-color:var(--glas-kante);box-shadow:inset 0 1px 0 var(--glas-licht)}
+  .hero-panel,.card,.form-card{background:var(--glas-fuell);-webkit-backdrop-filter:var(--glas-blur-karte);backdrop-filter:var(--glas-blur-karte);border-color:var(--glas-kante);box-shadow:var(--glas-licht),var(--sh-2)}
+  .hero-panel{box-shadow:var(--glas-licht),var(--sh-3)}
+  /* Terminkarten: Füllung und Lichtkante für alle, Unschärfe nur für die ersten 12 (Leistung bei ~100 Zeilen) */
+  .termin-row{background:var(--glas-fuell);border-color:var(--glas-kante);box-shadow:var(--glas-licht)}
+  .termine-rows>.termin-row:nth-child(-n+12){-webkit-backdrop-filter:var(--glas-blur-karte);backdrop-filter:var(--glas-blur-karte)}
+  /* kein Glas auf Glas: Zeilen und Karten innerhalb von Panels/Karten bleiben deckend */
+  .hero-panel .termin-row,.hero-panel .card,.card .card,.card .termin-row,.form-card .card{background:var(--card);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;border-color:var(--line)}
+}
+/* „Transparenz reduzieren": zurück auf die deckenden Flächen (Browser ohne diese Abfrage zeigen das Glas) */
+@media (prefers-reduced-transparency:reduce){
+  body{background:var(--bg)}
+  .site-header{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}
+  .sticky-cta{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hero-panel,.card,.form-card,.termin-row{background:var(--card);-webkit-backdrop-filter:none;backdrop-filter:none;border-color:var(--line)}
+}
+@media print{
+  .site-header,.sticky-cta,.hero-panel,.card,.form-card,.termin-row,.cta-band{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#fff!important;box-shadow:none!important}
+  .cta-band{color:#000!important}.cta-band h2,.cta-band p,.cta-band a:not(.btn){color:#000!important}
+  body{background:#fff!important}
+}
