@@ -7,6 +7,8 @@
   var fine = mm("(hover: hover) and (pointer: fine)").matches;
   var doc = document, root = doc.documentElement;
   root.classList.add("fx-on");
+  var conn = navigator.connection;
+  if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ""))) root.classList.add("fx-calm");
   function init() {
   var raf = window.requestAnimationFrame.bind(window);
   var hasIO = "IntersectionObserver" in window;
