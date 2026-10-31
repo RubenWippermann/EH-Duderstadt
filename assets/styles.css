@@ -836,3 +836,12 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
 .termine-veranst{font-size:1rem;line-height:1.55;color:var(--ink);margin:0 0 1em;padding:.75em 1em;border:1px solid var(--line);border-radius:10px}
 .termine-veranst a{text-decoration:underline}
 .hero-panel .termine-veranst{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:0 0 .75em;margin:.35em 0 .75em}
+
+/* Hero Startseite: Text + Banner-Illustration (21:9), Illustration gedämpft, Panel rückt hoch */
+.hero2-grid{display:grid;gap:clamp(20px,3vw,40px);align-items:center}
+.hero2-media{margin:0;overflow:hidden;border-radius:16px}
+.hero2-video{display:block;width:100%;height:auto;aspect-ratio:21/9;max-height:200px;object-fit:cover;object-position:50% 30%;filter:saturate(.85)}
+@media (min-width:1024px){
+  .hero2-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+  .hero2-video{max-height:360px}
+}
