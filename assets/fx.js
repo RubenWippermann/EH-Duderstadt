@@ -63,7 +63,7 @@
     p.setAttribute("d", "M10 250 V30 L200 10 L390 30 V250 Z M10 130 H390 M130 250 V130 M270 250 V130 M10 130 L130 30 M390 130 L270 30 M130 130 L200 10 M270 130 L200 10 M200 130 V10");
     svg.appendChild(p);
     sun.appendChild(svg);
-    hero.insertBefore(sun, hero.firstChild);
+    if (!hero.querySelector(".hero2-media")) hero.insertBefore(sun, hero.firstChild);   // Startseite: Illustration statt Linien-Dach
 
     var h1 = hero.querySelector("h1");
     if (h1 && !h1.querySelector(".fx-word")) {
