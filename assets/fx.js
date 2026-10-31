@@ -77,12 +77,16 @@
             c.nodeValue.split(/(\s+)/).forEach(function (w) {
               if (!w) return;
               if (/^\s+$/.test(w)) { frag.appendChild(doc.createTextNode(" ")); return; }
-              var s = doc.createElement("span");
-              s.className = "fx-word";
-              s.setAttribute("aria-hidden", "true");
-              s.style.setProperty("--i", n++);
-              s.textContent = w;
-              frag.appendChild(s);
+              /* Auch Bindestrich-Wörter ("Erste-Hilfe-Kurse") bleiben umbrechbar: je Teil ein Span, sonst bricht die
+                 Zeile nach dem Split anders um als davor (Layoutverschiebung, CLS). */
+              (w.match(/[^-]+-*|-+/g) || [w]).forEach(function (part) {
+                var s = doc.createElement("span");
+                s.className = "fx-word";
+                s.setAttribute("aria-hidden", "true");
+                s.style.setProperty("--i", n++);
+                s.textContent = part;
+                frag.appendChild(s);
+              });
             });
             node.replaceChild(frag, c);
           } else if (c.nodeType === 1) split(c);
