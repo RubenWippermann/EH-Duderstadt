@@ -519,8 +519,11 @@
     var el = document.getElementById('bewertungen');
     if (!el) return;
     var sec = el.closest('section');
+    // Bewertungen nur des Veranstalters, der den Kurs durchführt (data-bew-org am Abschnitt); ohne Angabe: nichts laden, nichts zeigen
+    var bewOrg = sec && sec.getAttribute('data-bew-org');
+    if (!bewOrg) return;
     function mk(tag, cls, txt) { var n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; }
-    jget(API + '/api/bewertungen?org=' + encodeURIComponent(ORG_LEAD)).then(function (d) {
+    jget(API + '/api/bewertungen?org=' + encodeURIComponent(bewOrg)).then(function (d) {
       var list = (d && d.bewertungen) || [];
       if (!list.length || !sec) return;
       list.slice(0, 6).forEach(function (b) {
