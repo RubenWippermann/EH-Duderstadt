@@ -2,7 +2,7 @@
 
 > Regionaler Auftritt von Personal Paramedic e.K. (DGUV-Kennziffer 8.2018) für Erste-Hilfe-Kurse in Duderstadt, Worbis, im Eichsfeld, Südharz und Raum Göttingen. Offene Kurse zum Einzelbuchen und Kurse direkt beim Kunden vor Ort.
 
-Stand: 01.11.2026 (wird bei jedem Bau der Website aktualisiert). Kursseite Erste-Hilfe-Ausbildung (Führerschein, Betrieb): https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-ausbildung/
+Stand: 02.11.2026 (wird bei jedem Bau der Website aktualisiert). Kursseite Erste-Hilfe-Ausbildung (Führerschein, Betrieb): https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-ausbildung/
 
 Ausführliche Fassung: https://www.erstehilfe-duderstadt.de/llms-full.txt
 
@@ -67,7 +67,7 @@ Ausführliche Fassung: https://www.erstehilfe-duderstadt.de/llms-full.txt
 - [Ratgeber: Brandschutzhelfer: Pflicht, Zahl und Ausbildung](https://www.erstehilfe-duderstadt.de/ratgeber/brandschutzhelfer-benennen/) — § 10 ArbSchG, in der Regel 5 % (ASR A2.2), Ausbildungsinhalt, Auffrischung in der Praxis alle 2 bis 5 Jahre
 - [Ratgeber: Betriebssanitäter: Wann Pflicht, welche Ausbildung](https://www.erstehilfe-duderstadt.de/ratgeber/betriebssanitaeter/) — § 27 Abs. 1 DGUV Vorschrift 1 (1.500 / mehr als 250, aber nicht mehr als 1.500 / Baustelle 100), Unterschied zum Ersthelfer, Grundausbildung 63 UE, Aufbaulehrgang 32 UE
 - [Ratgeber: Ersthelfer, Brandschutzhelfer, Betriebssanitäter: die Unterschiede](https://www.erstehilfe-duderstadt.de/ratgeber/ersthelfer-brandschutzhelfer-sanitaeter/) — Vergleichstabelle: Rechtsgrundlage, Ausbildung, Fristen und Kurs je Rolle
-- [Ratgeber: Erste-Hilfe-Leistungen dokumentieren: Verbandbuch und Meldeblock](https://www.erstehilfe-duderstadt.de/ratgeber/erste-hilfe-dokumentation/) — § 24 DGUV Vorschrift 1, Inhalt des Eintrags, Aufbewahrung fünf Jahre, Vertraulichkeit
+- [Ratgeber: Verbandbuch und Meldeblock: Erste-Hilfe-Leistungen dokumentieren](https://www.erstehilfe-duderstadt.de/ratgeber/erste-hilfe-dokumentation/) — § 24 DGUV Vorschrift 1, Inhalt des Eintrags, Aufbewahrung fünf Jahre, Vertraulichkeit
 - [Ratgeber: Erste-Hilfe-Material und Verbandkasten im Betrieb](https://www.erstehilfe-duderstadt.de/ratgeber/erste-hilfe-material-verbandkasten/) — § 25 DGUV Vorschrift 1, ASR A4.3, Verbandkasten DIN 13157/13169, Kennzeichnung, Kontrolle
 - [Ratgeber: Wer zahlt den Erste-Hilfe-Kurs? Kosten und Übernahme](https://www.erstehilfe-duderstadt.de/ratgeber/kosten-erste-hilfe-kurs/) — § 23 Abs. 2 Satz 2 SGB VII (Lehrgangsgebühren), Träger klären, Ablauf der Abrechnung, Selbstzahler
 - [Ratgeber: Erste-Hilfe-Ausbilder:in werden: Lehrkräfte-Ausbildung](https://www.erstehilfe-duderstadt.de/ratgeber/erste-hilfe-ausbilder-werden/) — Lehrkräfte-Ausbildung TB1 (3 Tage) und TB2 (4 Tage), DGUV Grundsatz 304-003, Fortbildung alle 3 Jahre
