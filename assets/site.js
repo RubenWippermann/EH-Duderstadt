@@ -169,7 +169,45 @@
     if (document.readyState === 'complete') start(); else window.addEventListener('load', start, { once: true });
   }
 
-  function boot() { initHeroVideo(); initNav(); initReveal(); initKoop(); initKursartVorbelegung(); initYear(); initAnchorFocus(); }
+  /* ---------- Offene Kurse: Schnellfilter nach Thema (nur Anzeige, JS-Zusatz; ohne JS bleibt die volle Liste) ---------- */
+  function initTerminFilter() {
+    if (!/\/offene-kurse-worbis\/?$/.test(location.pathname)) return;
+    var box = document.querySelector('[data-termine]');
+    if (!box || !box.parentNode) return;
+    var kats = [['Alle', null], ['Führerschein', /Führerschein/i], ['Betrieb · BG/UK', /BG\/UK/i],
+                ['Kinder & Bildung', /Kind|Baby|Bildungs|Kita/i], ['Brandschutz', /Brandschutz/i],
+                ['Sanitätsdienst & Lehrkräfte', /Sanit|Lehr/i]];
+    var bar = document.createElement('div');
+    bar.className = 'chips termin-filter'; bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'Termine nach Thema filtern');
+    var status = document.createElement('p');
+    status.className = 'muted termin-filter-status'; status.setAttribute('aria-live', 'polite');
+    var aktiv = null;
+    function apply() {
+      var rows = box.querySelectorAll('.termin-row'), n = 0;
+      for (var i = 0; i < rows.length; i++) {
+        var show = !aktiv || aktiv.test(rows[i].textContent);
+        rows[i].style.display = show ? '' : 'none';
+        if (show) n++;
+      }
+      status.textContent = aktiv ? (n ? n + ' Termine in dieser Auswahl.' : 'Für diese Auswahl gibt es aktuell keine Termine. Wähle „Alle“ oder frag einen Kurs vor Ort an.') : '';
+    }
+    kats.forEach(function (k, idx) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip'; b.textContent = k[0]; b.setAttribute('aria-pressed', idx === 0 ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        aktiv = k[1];
+        var all = bar.querySelectorAll('.chip');
+        for (var j = 0; j < all.length; j++) all[j].setAttribute('aria-pressed', all[j] === b ? 'true' : 'false');
+        apply();
+      });
+      bar.appendChild(b);
+    });
+    box.parentNode.insertBefore(bar, box);
+    box.parentNode.insertBefore(status, box);
+    if (window.MutationObserver) new MutationObserver(function () { if (aktiv) apply(); }).observe(box, { childList: true, subtree: true });
+  }
+
+  function boot() { initHeroVideo(); initNav(); initReveal(); initKoop(); initKursartVorbelegung(); initYear(); initAnchorFocus(); initTerminFilter(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();

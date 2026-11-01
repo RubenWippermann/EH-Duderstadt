@@ -855,3 +855,10 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
   .chips-stag .chip{transition:opacity .36s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*40ms),transform .36s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*40ms),border-color .18s var(--ease),color .18s var(--ease),background .18s var(--ease)}
   .chips-stag:not(.chips-go) .chip{opacity:.01;transform:translateY(8px)}
 }
+
+/* Offene Kurse: Schnellfilter */
+.termin-filter{margin:0 0 14px}
+.termin-filter .chip{cursor:pointer;min-height:44px;font-family:inherit}
+.termin-filter .chip[aria-pressed="true"]{background:var(--cta-a,#C2410C);border-color:var(--cta-a,#C2410C);color:#fff}
+.termin-filter-status{margin:0 0 12px;min-height:1.2em;font-size:.9rem}
+@media(max-width:600px){.termin-filter{gap:6px}.termin-filter .chip{padding:6px 12px;font-size:.84rem}}
