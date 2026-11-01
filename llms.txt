@@ -1,13 +1,13 @@
 # Erste Hilfe Duderstadt
 
-> Regionaler Auftritt von Personal Paramedic e.K. (DGUV-Kennziffer 8.2018) für Erste-Hilfe-Kurse in Duderstadt, Worbis, im Eichsfeld, Südharz und Raum Göttingen. Offene Kurse zum Einzelbuchen und Kurse direkt beim Kunden vor Ort.
+> Regionaler Auftritt von Personal Paramedic e.K. für Erste-Hilfe-Kurse in Duderstadt, Worbis, im Eichsfeld, Südharz und Raum Göttingen. Offene Kurse zum Einzelbuchen und Kurse direkt beim Kunden vor Ort.
 
-Stand: 01.11.2026 (wird bei jedem Bau der Website aktualisiert). Kursseite Erste-Hilfe-Ausbildung (Führerschein, Betrieb): https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-ausbildung/
+Stand: 02.11.2026 (wird bei jedem Bau der Website aktualisiert). Kursseite Erste-Hilfe-Ausbildung (Führerschein, Betrieb): https://www.erstehilfe-duderstadt.de/kurse/erste-hilfe-ausbildung/
 
 Ausführliche Fassung: https://www.erstehilfe-duderstadt.de/llms-full.txt
 
 ## Kernfakten
-- Personal Paramedic e.K. ist eine für Erste Hilfe ermächtigte Ausbildungsstätte mit DGUV-Kennziffer 8.2018 (§ 26 Abs. 2 DGUV Vorschrift 1).
+- Personal Paramedic e.K. ist ermächtigte Stelle der gesetzlichen Unfallversicherung für Erste Hilfe im Betrieb (Kennziffer 8.2018). Nach § 26 Abs. 2 DGUV Vorschrift 1 muss die Ausbildung bei einer ermächtigten Stelle stattfinden.
 - Betriebliche Ersthelfer müssen spätestens alle zwei Jahre fortgebildet werden (§ 26 Abs. 3 DGUV Vorschrift 1).
 - Die erforderliche Zahl betrieblicher Ersthelfer richtet sich nach § 26 Abs. 1 DGUV Vorschrift 1 — ab zwei anwesenden Versicherten mindestens eine ausgebildete Person.
 - Die Lehrgangsgebühren für Aus- und Fortbildung betrieblicher Ersthelfer trägt in der Regel der zuständige Unfallversicherungsträger — Berufsgenossenschaft oder Unfallkasse (§ 23 Abs. 2 Satz 2 SGB VII).
@@ -19,7 +19,7 @@ Ausführliche Fassung: https://www.erstehilfe-duderstadt.de/llms-full.txt
 - Anbieter/Impressum: Personal Paramedic e.K., Königsallee 19, 40212 Düsseldorf
 - Zweigniederlassung: Worbiser Straße 2, 37115 Duderstadt
 - Telefon: +49 5527 7488495 · E-Mail: info@erstehilfe-duderstadt.de
-- DGUV-anerkannte Ausbildungsstätte, Kennziffer 8.2018
+- Ermächtigte Stelle der gesetzlichen Unfallversicherung für Erste Hilfe im Betrieb (Kennziffer 8.2018)
 - Offene Kurse finden in Worbis (Leinefelde-Worbis) statt; Zugang über Parkplatz/Hintereingang.
 - Kurse vor Ort bei euch im Betrieb, maximal 20 Teilnehmende je Kurs.
 - Erste-Hilfe-Ausbildung und -Fortbildung sind für betriebliche Ersthelfer in der Regel über Berufsgenossenschaft oder Unfallkasse abrechenbar.
