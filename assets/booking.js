@@ -189,7 +189,7 @@
     var voll  = !!k.ausgebucht;
     // Hausregel: freie Plätze nie als Anzahl zeigen (Kapazität 20, Plätze nicht öffentlich) —
     // unabhängig davon, ob k.freie_plaetze je belastbar wird. Keine Platzaussage, nur Termin/"Ausgebucht".
-    var frei  = 'Termin ansehen / buchen';
+    var frei  = 'Endpreis je Person';
 
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
