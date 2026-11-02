@@ -957,3 +957,9 @@ ol.schritte p{margin:0;color:var(--ink-2);font-size:.97rem}
 @media (min-width:1024px){.kurs-grid>.kurs-card{flex:0 1 calc((100% - 2*clamp(18px,2.2vw,28px))/3)}}
 :root[data-theme="dark"] .k-chip{background:rgba(249,115,22,.14);border-color:rgba(249,115,22,.3);color:var(--o-200)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .k-chip{background:rgba(249,115,22,.14);border-color:rgba(249,115,22,.3);color:var(--o-200)}}
+
+/* Storno-Hinweis (Kurs-, Termin- und Ortsseiten): Icon in Textgröße vor dem Absatz
+   (das Inline-SVG hatte keine Größenregel und füllte die Spaltenbreite). */
+.hinweis-storno{max-width:80ch;margin:18px 0 0;line-height:1.55}
+.hinweis-storno svg{display:inline-block;width:18px;height:18px;margin-right:8px;vertical-align:-3px}
+.page-hero .hinweis-storno{margin-inline:auto;text-align:left}
