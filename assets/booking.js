@@ -219,7 +219,7 @@
     url = withUtm(url);
     return '<a class="termin-row" href="' + esc(url) + '"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(titelAnzeige(k.titel))) + '">' +
-      inner + '<span class="termin-cta">Termin ansehen / buchen →</span></a>';
+      inner + '<span class="termin-cta">Zur Buchung bei software-wippermann.de →</span></a>';
   }
 
   // Grosse Terminlisten in Scheiben rendern: erste Zeilen sofort (LCP/Interaktion), Rest in
@@ -315,7 +315,7 @@
     loadFeed().then(function (all) {
       // Gebackener Stand-Hinweis -> Live-Hinweis (gleiche Zeilenzahl, kein Layoutsprung)
       if (!_feedFallback) Array.prototype.forEach.call(document.querySelectorAll('[data-stand]'), function (p) {
-        p.textContent = 'Live aus der Kursverwaltung.';
+        p.textContent = 'Live aus der Kursverwaltung. Gebucht wird dort unter software-wippermann.de.';
       });
       Array.prototype.forEach.call(els, function (el) {
         var limitA = el.getAttribute('data-limit');
