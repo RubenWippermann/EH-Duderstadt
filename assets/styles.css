@@ -873,3 +873,42 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
 
 /* Veranstalter und Vertragspartner je Terminzeile: mindestens 14 px (Jurist 02.11.) */
 .termin-info small.termin-veranst,.hero-panel .termin-info small.termin-veranst{font-size:14px;line-height:1.4}
+
+/* ==========================================================================
+   Design-Feinschliff (02.11.2026): ein Rhythmus, symmetrische Köpfe, ruhige Typografie.
+   Steht bewusst am Ende und fasst die früheren Überschreibungen zusammen.
+   ========================================================================== */
+:root{--rhythm-s:clamp(40px,5vw,64px);--rhythm-m:clamp(56px,7vw,96px);--measure:62ch}
+
+/* Überschriften: keine automatische Silbentrennung in kurzen Titeln, ausgewogener Umbruch */
+h1,h2,h3,h4{hyphens:manual;text-wrap:balance}
+.hero-panel h2{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 14px}
+.hero-panel h2 .live-dot{white-space:nowrap}
+
+/* Stand-Zeile der Ratgeber: eigener Abstand statt am Lead zu kleben */
+.stand-zeile{max-width:74ch;margin:18px 0 22px;line-height:1.55}
+.stand-zeile a{white-space:nowrap}
+
+/* Seitenköpfe (Kurs, Ratgeber, Ort, Übersichten): ab Tablet zentriert und symmetrisch */
+@media (min-width:768px){
+  .page-hero .wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .page-hero .crumbs{justify-content:center}
+  .page-hero .eyebrow::before{display:none}
+  .page-hero h1{max-width:24ch;margin-inline:auto}
+  .page-hero p,.page-hero .stand-zeile,.page-hero .koop{max-width:var(--measure);margin-inline:auto}
+  .page-hero .hero-actions{justify-content:center}
+  .page-hero .hero-kurzfakten{max-width:var(--measure)}
+}
+
+/* Startseite Desktop: Bild füllt die Spaltenhöhe, damit Text und Bild ein Paar bilden */
+@media (min-width:1024px){
+  .hero2-grid{align-items:stretch}
+  .hero2-media{display:flex;border-radius:var(--r-lg)}
+  .hero2-media picture{display:flex;width:100%}
+  .hero2-video{height:100%;min-height:360px;max-height:none;aspect-ratio:auto}
+}
+.page-hero p + p{margin-top:.9em}
+@media (min-width:1024px){
+  .hero2-media{margin-bottom:clamp(28px,3vw,44px)}
+}
+.page-hero .hero-kurzfakten{margin-top:.9em !important}
