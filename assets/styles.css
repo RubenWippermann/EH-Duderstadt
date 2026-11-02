@@ -912,3 +912,48 @@ h1,h2,h3,h4{hyphens:manual;text-wrap:balance}
   .hero2-media{margin-bottom:clamp(28px,3vw,44px)}
 }
 .page-hero .hero-kurzfakten{margin-top:.9em !important}
+
+/* "Warum wir": Kopf zentriert, darunter ein symmetrisches Kartenraster (3 x 2). Die Kacheln sind Links,
+   Text bleibt dunkel, nur "Mehr erfahren" trägt die Markenfarbe; Icons haben dieselbe Form wie .card-ic. */
+.usp-asym{display:block}
+.usp-lead{max-width:720px;margin:0 auto clamp(32px,4vw,52px);text-align:center}
+.usp-lead .eyebrow::before{display:none}
+.usp-lead p{color:var(--muted);font-size:1.09rem;margin-bottom:0}
+.usp-list{display:grid;gap:clamp(14px,2vw,22px);grid-template-columns:1fr}
+@media (min-width:640px){.usp-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px){.usp-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.usp-item{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:26px;text-decoration:none;transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s var(--ease)}
+.usp-ic{display:grid;place-items:center;width:46px;height:46px;margin-bottom:18px;border-radius:14px 4px 14px 4px;
+  background:var(--o-100);color:var(--o-700)}
+.usp-ic svg{width:23px;height:23px}
+.usp-txt{display:flex;flex-direction:column;flex:1}
+.usp-item .usp-txt h3{margin:0 0 .4em;font-size:1.12rem;color:var(--ink)}
+.usp-item .usp-txt p{margin:0;color:var(--ink-2);font-size:.97rem}
+.usp-item .k-more{margin-top:auto;padding-top:16px}
+@media (hover:hover){.usp-item:hover{transform:translateY(-3px);border-color:var(--o-200);box-shadow:0 10px 28px rgba(28,25,23,.08)}}
+.usp-item:focus-visible{outline:3px solid var(--o-400);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.usp-item{transition:none}.usp-item:hover{transform:none}}
+:root[data-theme="dark"] .usp-ic{background:rgba(249,115,22,.16);color:var(--o-300)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .usp-ic{background:rgba(249,115,22,.16);color:var(--o-300)}}
+
+/* "Buchung in 3 Schritten": nummerierte Karten statt blanker Liste, gleiche Kartensprache wie .card */
+ol.schritte{list-style:none;margin:0 0 clamp(24px,3vw,40px);padding:0;display:grid;gap:clamp(14px,2vw,22px);grid-template-columns:1fr}
+@media (min-width:768px){ol.schritte{grid-template-columns:repeat(3,minmax(0,1fr))}}
+ol.schritte>li{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;text-align:left}
+ol.schritte>li>b{display:grid;place-items:center;width:40px;height:40px;margin-bottom:16px;border-radius:50%;
+  background:linear-gradient(135deg,var(--cta-a),var(--cta-b));color:#fff;font-size:1.05rem;line-height:1}
+ol.schritte h3{margin:0 0 .4em;font-size:1.12rem}
+ol.schritte p{margin:0;color:var(--ink-2);font-size:.97rem}
+.schritte-sec .section-head{margin-inline:auto;text-align:center}
+.schritte-sec .section-head .eyebrow::before{display:none}
+
+/* Kurskarten: Terminhinweis als ruhige Marke, letzte Reihe mittig statt linksbündig */
+.k-chip{display:inline-flex;align-self:flex-start;margin:12px 0 16px;padding:5px 12px;border-radius:var(--r-pill);
+  background:var(--o-50);border:1px solid var(--o-200);color:var(--o-800);font-size:.82rem;font-weight:650;line-height:1.35}
+.kurs-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(18px,2.2vw,28px)}
+.kurs-grid>.kurs-card{flex:1 1 100%;min-width:0}
+@media (min-width:640px){.kurs-grid>.kurs-card{flex:0 1 calc((100% - clamp(18px,2.2vw,28px))/2)}}
+@media (min-width:1024px){.kurs-grid>.kurs-card{flex:0 1 calc((100% - 2*clamp(18px,2.2vw,28px))/3)}}
+:root[data-theme="dark"] .k-chip{background:rgba(249,115,22,.14);border-color:rgba(249,115,22,.3);color:var(--o-200)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .k-chip{background:rgba(249,115,22,.14);border-color:rgba(249,115,22,.3);color:var(--o-200)}}
