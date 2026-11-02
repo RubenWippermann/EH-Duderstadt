@@ -195,7 +195,7 @@
 
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
-      '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small><small class="termin-veranst">Veranstalter und Vertragspartner: ' + esc(veranstalterName(k) || 'siehe Buchungsseite') + ' · Impressum im Hinweis zur Liste</small></span>' +
+      '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small><small class="termin-veranst">Veranstalter und Vertragspartner: ' + esc(veranstalterName(k) || 'siehe Buchungsseite') + ' – Impressum, AGB und Widerruf unter der Liste</small></span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : frei) + '</small></span>';
 
     if (voll) {

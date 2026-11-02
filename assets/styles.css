@@ -870,3 +870,6 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
 @media(max-width:600px){
   .hero2-media{display:none}
 }
+
+/* Veranstalter und Vertragspartner je Terminzeile: mindestens 14 px (Jurist 02.11.) */
+.termin-info small.termin-veranst,.hero-panel .termin-info small.termin-veranst{font-size:14px;line-height:1.4}
