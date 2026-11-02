@@ -171,7 +171,9 @@
 
   /* ---------- Veranstalter-Hinweis BWW (Fremdbuchung): Block über jeder Terminliste + Kurzzeile je Zeile ---------- */
   var BWW_NAME = 'BWW UG (haftungsbeschränkt)';
-  var BWW_BLOCK = '<p class="termine-veranst">Veranstalter: ' + BWW_NAME + ', Worbiser Straße 2, 37115 Duderstadt. ' +
+  var VERANSTALTER = { bww: BWW_NAME, pepa: 'Personal Paramedic e.K.', 'personal-paramedic': 'Personal Paramedic e.K.', euroblood: 'Euroblood UG' };
+  function veranstalterName(k) { var m = /[?&]org=([a-z0-9-]+)/.exec(k.buchungs_url || ''); return (m && VERANSTALTER[m[1]]) || ''; }
+  var BWW_BLOCK = '<p class="termine-veranst">Veranstalter und Vertragspartner: ' + BWW_NAME + ', Worbiser Straße 2, 37115 Duderstadt. ' +
     '<a href="https://www.multiplikatorenstelle.de/impressum/" rel="noopener">Impressum des Veranstalters</a>. Es gelten die ' +
     '<a href="https://www.multiplikatorenstelle.de/agb/" rel="noopener">AGB</a> und die ' +
     '<a href="https://www.multiplikatorenstelle.de/widerruf/" rel="noopener">Widerrufsbelehrung</a> des Veranstalters. ' +
@@ -193,7 +195,7 @@
 
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
-      '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small><small class="termin-veranst">Veranstalter: ' + BWW_NAME + '</small></span>' +
+      '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small><small class="termin-veranst">Veranstalter und Vertragspartner: ' + esc(veranstalterName(k) || 'siehe Buchungsseite') + ' · Impressum im Hinweis zur Liste</small></span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : frei) + '</small></span>';
 
     if (voll) {

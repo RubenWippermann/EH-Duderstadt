@@ -863,10 +863,10 @@ li>a:only-child,p>a:only-child,a[href^="tel:"]{display:inline-flex;align-items:c
 .termin-filter-status{margin:0 0 12px;min-height:1.2em;font-size:.9rem}
 @media(max-width:600px){.termin-filter{gap:6px}.termin-filter .chip{padding:6px 12px;font-size:.84rem}}
 
-/* Startseite mobil: Terminliste zuerst (Veranstalter-Block direkt unter der Liste, je Zeile steht weiter die Veranstalter-Kurzzeile), Hero-Bild entfaellt */
+/* Startseite: Terminliste zuerst, Veranstalter-Block direkt darunter (Jurist 02.11.: mobil = Desktop); Hero-Bild entfaellt nur mobil */
+.hero2-panel .termine{display:flex;flex-direction:column}
+.hero2-panel .termine-rows{order:1}
+.hero2-panel .termine-veranst{order:2;margin:14px 0 0}
 @media(max-width:600px){
   .hero2-media{display:none}
-  .hero2-panel .termine{display:flex;flex-direction:column}
-  .hero2-panel .termine-rows{order:1}
-  .hero2-panel .termine-veranst{order:2;margin:14px 0 0}
 }
