@@ -969,3 +969,6 @@ html.lenis, html.lenis body { height: auto; }
 .lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
 .lenis [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-smooth iframe { pointer-events: none; }
+
+/* Ratgeber-Block (vier Karten): zwei mal zwei statt drei plus eine */
+@media (min-width:640px){.kurs-grid.zwei>.kurs-card{flex:0 1 calc((100% - clamp(18px,2.2vw,28px))/2)}}
