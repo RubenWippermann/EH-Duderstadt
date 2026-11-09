@@ -975,3 +975,9 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Lange Link-Texte (z. B. URLs in Datenschutz) brechen um statt die Seite zu verbreitern */
 main p a,main li a{overflow-wrap:anywhere}
+
+/* A11y: CTA-Band Kontrast (weiss auf Orange-Verlauf >= 4,5:1, vorher 3,15:1 am hellen Ende, Fliesstext 90 % Weiss) */
+.cta-band{background:linear-gradient(135deg,var(--o-700),var(--o-800))}
+.cta-band p{color:#fff}
+/* A11y Dunkelmodus: Link-Farbregel (a:not(.btn):not(.pri)) färbte den Kalender-Button orange auf orange (2,3:1); Text bleibt weiss */
+:root a.kal-cta:not(.btn):not(.pri),:root:not([data-theme="light"]) a.kal-cta:not(.btn):not(.pri),:root[data-theme="dark"] a.kal-cta:not(.btn):not(.pri){color:#fff}
