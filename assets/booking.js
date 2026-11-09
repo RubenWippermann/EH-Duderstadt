@@ -181,6 +181,13 @@
     '<a href="https://www.multiplikatorenstelle.de/widerruf/" rel="noopener">Widerrufsbelehrung</a> des Veranstalters. ' +
     'Preis je Termin laut Zeile. Diese Website vermittelt den Kurs im Namen des Veranstalters.</p>';
 
+  // Dauer je Kursart (Quelle: data.py KURSE[].ue, wie die Kursseiten); unbekannte Kursart -> keine Zeile
+  var DAUER = { EHA: '9 Unterrichtseinheiten · 1 Tag', EHF: '9 Unterrichtseinheiten · 1 Tag', EHB: '9 Unterrichtseinheiten · 1 Tag',
+    EHBK: 'kompakter Abendkurs', BH: 'ca. 4 Stunden · Theorie & Praxis', NFT: '4 Stunden · praxisorientiert', LK1: '3 Tage', LK2: '4 Tage',
+    LKF: '16 Unterrichtseinheiten · 2 Tage', BSG: '63 UE zzgl. Prüfung (i. d. R. 8 UE)', BSA: '32 UE zzgl. Prüfung (i. d. R. 8 UE)', SanH: '6 Tage',
+    LBEH: 'mind. 120 UE · 14 Tage', LBEHF: '24 Unterrichtseinheiten · 3 Tage', LKBSQ: '16 Unterrichtseinheiten · 2 Tage', LKBSAS: '8 Unterrichtseinheiten · 1 Tag' };
+  function dauerSmall(k) { var d = DAUER[k.kursart]; return d ? '<small class="termin-dauer">' + esc(d) + '</small>' : ''; }
+
   /* ---------- Rendering einer Termin-Zeile ---------- */
   function rowHTML(k) {
     var tags = [k.stadt];
@@ -197,7 +204,7 @@
 
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
-      '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small><small class="termin-veranst">Veranstalter und Vertragspartner: ' + esc(veranstalterName(k) || 'siehe Buchungsseite') + ' – Impressum, AGB und Widerruf unter der Liste</small></span>' +
+      '<span class="termin-info"><b>' + esc(titelAnzeige(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small>' + dauerSmall(k) + '<small class="termin-veranst">Veranstalter und Vertragspartner: ' + esc(veranstalterName(k) || 'siehe Buchungsseite') + ' – Impressum, AGB und Widerruf unter der Liste</small></span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : frei) + '</small></span>';
 
     if (voll) {
