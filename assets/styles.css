@@ -981,3 +981,15 @@ main p a,main li a{overflow-wrap:anywhere}
 .cta-band p{color:#fff}
 /* A11y Dunkelmodus: Link-Farbregel (a:not(.btn):not(.pri)) färbte den Kalender-Button orange auf orange (2,3:1); Text bleibt weiss */
 :root a.kal-cta:not(.btn):not(.pri),:root:not([data-theme="light"]) a.kal-cta:not(.btn):not(.pri),:root[data-theme="dark"] a.kal-cta:not(.btn):not(.pri){color:#fff}
+
+/* Ads-Zielseite mobil (BL 09.11.): Veranstalterzeile der ersten Termin-Karte liegt oberhalb der klebenden Leiste (375x812),
+   Uhrzeit (09:00–16:30 Uhr, Angabe aus dem Feed) neben dem Datum statt versteckt. Nur Abstände/Anzeige, kein neuer Text. */
+@media (max-width:600px){
+  .hero2{padding-top:22px;padding-bottom:28px}
+  .hero2-grid{gap:10px}
+  .hero2 .hero-sub{margin-bottom:14px}
+  .hero2 h1{margin-bottom:.3em}
+  .hero2-panel{padding:16px 14px}
+  .hero-panel .termin-date{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 8px}
+  .hero-panel .termin-date small{display:inline;font-size:.75rem}
+}
