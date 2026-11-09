@@ -29,6 +29,8 @@
   var ORG_LEAD   = CFG.orgLead    || 'personal-paramedic';
   var ORG_FEEDS  = CFG.orgFeeds   || ['bww', 'personal-paramedic'];
   var QUELLE     = CFG.quelle     || 'erstehilfe-duderstadt';
+  // Anzeigen-Kennung (?quelle=ads-w|d|p|b): nur aus der Adresse gelesen, nur Allowlist, nicht gespeichert (kein Storage/Cookie)
+  var KENNUNG    = (function () { var m = /[?&]quelle=(ads-[wdpb])(?:&|$)/.exec(location.search); return m ? m[1] : ''; })();
   var TEL        = CFG.tel        || '+49 5527 7488495';
   var TEL_HREF   = CFG.telHref    || '+4955277488495';
 
@@ -218,6 +220,7 @@
     if (url.indexOf('quelle_pfad=') === -1) {
       url += '&quelle_pfad=' + encodeURIComponent(location.pathname);
     }
+    if (KENNUNG) { url += '&kennung=' + encodeURIComponent(KENNUNG); }
     url = withUtm(url);
     return '<a class="termin-row" href="' + esc(url) + '"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(label(titelAnzeige(k.titel))) + '">' +
@@ -395,6 +398,7 @@
         if (hp && hp.value) { if (status) status.textContent = 'Danke!'; return; }
 
         var payload = { org: ORG_LEAD, website: '', quelle: QUELLE };
+        if (KENNUNG) { payload.kennung = KENNUNG; }
         Array.prototype.forEach.call(form.querySelectorAll('[name]'), function (f) {
           var n = f.getAttribute('name');
           if (n === 'website' || n === 'consent' || n === 'newsletter') return;
@@ -421,7 +425,7 @@
           if (mail) {
             newsletterPromise = fetch(API + '/api/newsletter', {
               method: 'POST', headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ org: ORG_LEAD, email: mail, quelle: QUELLE, website: '' })
+              body: JSON.stringify(KENNUNG ? { org: ORG_LEAD, email: mail, quelle: QUELLE, website: '', kennung: KENNUNG } : { org: ORG_LEAD, email: mail, quelle: QUELLE, website: '' })
             }).then(function (r) { return r.ok; }).catch(function () { return false; });
           }
         }
