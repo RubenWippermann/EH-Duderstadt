@@ -54,16 +54,8 @@
       var ziel = (z.textContent || '').trim();
       if (!/^\d{1,5}$/.test(ziel) || z.dataset.gezaehlt) return;
       z.dataset.gezaehlt = '1';
-      var n = parseInt(ziel, 10), t0 = null;
+      /* Kein Hochzählen mehr (kein Zwischenwert „0“): die Zahl steht sofort da, nur tabellarische Ziffern */
       z.style.fontVariantNumeric = 'tabular-nums';
-      z.textContent = '0';
-      function schritt(t) {
-        if (t0 === null) t0 = t;
-        var f = Math.min((t - t0) / 600, 1);
-        z.textContent = String(Math.round(n * f));
-        if (f < 1) requestAnimationFrame(schritt);
-      }
-      requestAnimationFrame(schritt);
     });
   }
   function initReveal() {
@@ -207,7 +199,15 @@
     if (window.MutationObserver) new MutationObserver(function () { if (aktiv) apply(); }).observe(box, { childList: true, subtree: true });
   }
 
-  function boot() { initHeroVideo(); initNav(); initReveal(); initKoop(); initKursartVorbelegung(); initYear(); initAnchorFocus(); initTerminFilter(); }
+  /* Mobile Sticky-Leiste: ruhig, solange der Hero-Knopf im Bild ist (IntersectionObserver, nur Klassenwechsel) */
+  function initStickyRuhe() {
+    var bar = document.querySelector('.sticky-cta'), hb = document.querySelector('.hero .btn.primary');
+    if (!bar || !hb || !('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('sticky-by-hero');
+    new IntersectionObserver(function (es) { bar.classList.toggle('is-quiet', es[0].isIntersecting); }, { threshold: 0.01 }).observe(hb);
+  }
+
+  function boot() { initHeroVideo(); initNav(); initStickyRuhe(); initReveal(); initKoop(); initKursartVorbelegung(); initYear(); initAnchorFocus(); initTerminFilter(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();

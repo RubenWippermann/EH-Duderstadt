@@ -137,16 +137,7 @@
       es.forEach(function (e) {
         if (!e.isIntersecting) return;
         sio.unobserve(e.target);
-        var el = e.target, fin = el.getAttribute("data-fx-final");
-        var m = /^(\d+)(.*)$/.exec(fin), target = parseInt(m[1], 10), suffix = m[2], t0 = null, dur = 1200;
-        function step(t) {
-          if (t0 === null) t0 = t;
-          var k = Math.min(1, (t - t0) / dur), ease = 1 - Math.pow(1 - k, 4);
-          el.textContent = Math.round(target * ease) + suffix;
-          if (k < 1) raf(step); else el.textContent = fin;
-        }
-        raf(step);
-        setTimeout(function () { el.textContent = fin; }, dur + 400);
+        /* Kein Hochzählen mehr: die endgültige Zahl steht von Anfang an da (keine Zwischenwerte wie „0 UE"). */
       });
     }, { threshold: 0.6 });
     stats.forEach(function (el) {
