@@ -77,8 +77,15 @@
     if (isNaN(start.getTime())) return true;
     return Date.now() < start.getTime() - 15 * 60 * 1000;
   }
+  // fetch mit Zeitlimit (AbortController): Feed 15 s, Formular-POST 25 s; bei Ablauf wird der Fetch abgebrochen (Fehler name=AbortError)
+  function timedFetch(url, opts, ms) {
+    var ac = typeof AbortController === 'function' ? new AbortController() : null;
+    var t = ac ? setTimeout(function () { ac.abort(); }, ms) : null;
+    if (ac) opts.signal = ac.signal;
+    return fetch(url, opts).then(function (r) { if (t) clearTimeout(t); return r; }, function (e) { if (t) clearTimeout(t); throw e; });
+  }
   function jget(url) {
-    return fetch(url, { credentials: 'omit' }).then(function (r) {
+    return timedFetch(url, { credentials: 'omit' }, 15000).then(function (r) {
       if (!r.ok) throw new Error('http_' + r.status);
       return r.json();
     });
@@ -430,17 +437,17 @@
         if (nl && nl.checked) {
           var mail = (form.querySelector('[name="email"]') || {}).value || '';
           if (mail) {
-            newsletterPromise = fetch(API + '/api/newsletter', {
+            newsletterPromise = timedFetch(API + '/api/newsletter', {
               method: 'POST', headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(KENNUNG ? { org: ORG_LEAD, email: mail, quelle: QUELLE, website: '', kennung: KENNUNG } : { org: ORG_LEAD, email: mail, quelle: QUELLE, website: '' })
-            }).then(function (r) { return r.ok; }).catch(function () { return false; });
+            }, 25000).then(function (r) { return r.ok; }).catch(function () { return false; });
           }
         }
 
         var http = 0;
-        fetch(API + '/api/' + endpoint, {
+        timedFetch(API + '/api/' + endpoint, {
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
-        }).then(function (r) {
+        }, 25000).then(function (r) {
           http = r.status;
           return r.json().catch(function () { return {}; });
         }).then(function (res) {
@@ -467,10 +474,12 @@
           }
           if (status) { status.className = 'form-status is-error'; status.textContent = msg; }
           if (btn) { btn.disabled = false; btn.removeAttribute('aria-busy'); btn.textContent = orig; }
-        }).catch(function () {
+        }).catch(function (err) {
           if (status) {
             status.className = 'form-status is-error';
-            status.textContent = 'Verbindung fehlgeschlagen. Bitte später erneut versuchen oder anrufen: ' + TEL + '.';
+            status.textContent = (err && err.name === 'AbortError')
+              ? 'Wir haben keine Antwort erhalten. Ihre Anfrage ist möglicherweise angekommen. Bitte prüfen Sie Ihr Postfach oder rufen Sie uns an, bevor Sie erneut senden. Telefon: ' + TEL + '.'
+              : 'Verbindung fehlgeschlagen. Bitte später erneut versuchen oder anrufen: ' + TEL + '.';
           }
           if (btn) { btn.disabled = false; btn.removeAttribute('aria-busy'); btn.textContent = orig; }
         });
