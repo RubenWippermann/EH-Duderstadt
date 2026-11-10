@@ -1009,3 +1009,7 @@ main p a,main li a{overflow-wrap:anywhere}
 .hero-panel .termin-info small{white-space:normal;text-overflow:clip}
 .hero-kursort .kursort-kurz{display:none}
 @media (max-width:600px){.hero-kursort .kursort-lang{display:none}.hero-kursort .kursort-kurz{display:inline}.hero-kursort{margin-bottom:14px}}
+
+/* Zielgroessen: Warteliste-Button und Modal-Schliessen mind. 44 px (Ablauf-Audit 10.11.) */
+.termin-cta.wl-open{min-height:44px}
+.modal-x{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0}
