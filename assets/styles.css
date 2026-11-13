@@ -128,7 +128,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 :root[data-theme="dark"] .brand img.brand-logo{background:#FCF7F1;border-radius:8px;padding:4px 7px}
 .brand-txt{display:flex;flex-direction:column;line-height:1.12}
 .brand-txt b{font-size:1.02rem;font-weight:780;letter-spacing:-.028em;white-space:nowrap}
-.brand-txt small{font-size:.685rem;color:var(--muted);letter-spacing:.075em;text-transform:uppercase;font-weight:620;white-space:nowrap}
+.brand-txt small{font-size:.75rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;font-weight:620;white-space:nowrap}
 /* Schmale Phones: im HEADER nur das (selbst-identifizierende) Logo, Wortmarke aus — sonst
    Header-Überlauf. Name bleibt im aria-label + im Footer (dort ist Platz) erhalten. */
 @media (max-width:480px){.site-header .brand-txt{display:none}}
@@ -261,7 +261,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 }
 .hero-panel h2{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:1.06rem;margin-bottom:4px}
 .hero-panel .panel-note{color:var(--muted);font-size:.86rem;margin-bottom:16px}
-.live-dot{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ok)}
+.live-dot{display:inline-flex;align-items:center;gap:7px;font-size:.75rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ok)}
 .live-dot i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(21,128,61,.55);animation:pulse 2.4s 3}
 .live-dot.is-fallback{color:var(--muted)}
 .live-dot.is-fallback i{background:var(--muted);box-shadow:none;animation:none}
@@ -398,7 +398,7 @@ a.kurs-card{display:flex;flex-direction:column;color:var(--ink)}
 .kurs-card .k-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .k-badge{
   display:inline-flex;align-items:center;padding:4px 11px;border-radius:var(--r-pill);
-  background:var(--bg-tint);color:var(--brand-lo);font-size:.71rem;font-weight:740;letter-spacing:.075em;
+  background:var(--bg-tint);color:var(--brand-lo);font-size:.75rem;font-weight:740;letter-spacing:.075em;
   border:1px solid var(--o-200);
 }
 .k-ue{font-size:.79rem;color:var(--muted);font-weight:600}
@@ -408,7 +408,7 @@ a.kurs-card{display:flex;flex-direction:column;color:var(--ink)}
   border-top:1px solid var(--line-2);
 }
 .k-price{font-weight:740;color:var(--brand-lo);font-size:1.02rem}
-.k-price small{display:block;font-weight:500;color:var(--muted);font-size:.73rem;letter-spacing:.02em}
+.k-price small{display:block;font-weight:500;color:var(--muted);font-size:.75rem;letter-spacing:.02em}
 .k-more{font-size:.9rem;font-weight:640;color:var(--brand-lo);display:inline-flex;align-items:center;gap:5px}
 
 /* Stat-Band */
