@@ -506,10 +506,9 @@
           '<div class="field"><label for="wlTel">Telefon</label>' +
             '<input id="wlTel" name="telefon" type="tel" autocomplete="tel"></div>' +
           '<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">' +
-          '<label class="consent"><input type="checkbox" required>' +
-            '<span>Ich bin einverstanden, dass meine Daten zur Bearbeitung der Wartelisten-Anfrage ' +
-            'gespeichert werden. <a href="/datenschutz/">Datenschutz</a></span></label>' +
           '<button class="btn primary block" type="submit">Auf die Warteliste setzen</button>' +
+          '<p class="form-hint">Wir verwenden deine Angaben nur, um dich zu benachrichtigen, wenn ein Platz frei wird ' +
+            '(Art. 6 Abs. 1 lit. b DSGVO). Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>' +
           '<p class="form-status"></p>' +
         '</form>' +
       '</div>';

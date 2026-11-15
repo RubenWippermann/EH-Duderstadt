@@ -1024,3 +1024,5 @@ main p a,main li a{overflow-wrap:anywhere}
   .sticky-by-hero .sticky-cta.is-quiet a.tel{pointer-events:auto;background:var(--card);box-shadow:var(--sh-2,0 4px 14px rgba(0,0,0,.16))}
 }
 @media (prefers-reduced-motion:no-preference){.sticky-cta a.pri{transition:opacity .2s ease,visibility 0s}}
+.form-hint{margin:12px 0 0;font-size:.85rem;line-height:1.5;color:var(--muted)}
+.form-hint a{color:var(--brand-lo);text-decoration:underline;text-underline-offset:2px}
