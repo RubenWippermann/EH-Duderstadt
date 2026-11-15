@@ -278,6 +278,13 @@
     return rest.map(opt).join('') +
       (lehr.length ? '<optgroup label="Lehrkräfte &amp; Ausbilder">' + lehr.map(opt).join('') + '</optgroup>' : '');
   }
+  // Wochenende: Kursbeginn an einem Samstag oder Sonntag (datum JJJJ-MM-TT, Mittag-UTC gegen Zeitzonenverschiebung)
+  function istWochenende(k) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(k && k.datum || '');
+    if (!m) return false;
+    var d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], 12)).getUTCDay();
+    return d === 0 || d === 6;
+  }
   function renderFiltered(el, all) {
     var arten = {}, staedte = {};
     all.forEach(function (k) {
@@ -288,34 +295,40 @@
     var stadtKeys = Object.keys(staedte).sort();
     var showArt = artKeys.length > 1, showStadt = stadtKeys.length > 1;
     var hasBg = all.some(function (k) { return istBgUk(k); });
+    var hasFs = all.some(function (k) { return !!k.fuehrerschein_geeignet; });
+    var hasWe = all.some(function (k) { return istWochenende(k); });
 
     var bar = '';
-    if (showArt || showStadt || hasBg) {
+    if (showArt || showStadt || hasBg || hasFs || hasWe) {
       bar = '<div class="termine-filter">' +
         (showArt ? '<select class="tf-art" aria-label="Nach Kursart filtern"><option value="">Alle Kursarten</option>' +
           artOptionen(artKeys, arten) + '</select>' : '') +
         (showStadt ? '<select class="tf-stadt" aria-label="Nach Ort filtern"><option value="">Alle Orte</option>' +
           stadtKeys.map(function (s) { return '<option value="' + esc(s) + '">' + esc(s) + '</option>'; }).join('') + '</select>' : '') +
         (hasBg ? '<label class="tf-bg"><input type="checkbox" class="tf-bgchk"> Nur BG/UK-abrechenbar</label>' : '') +
+        (hasFs ? '<label class="tf-bg"><input type="checkbox" class="tf-fschk"> Nur Führerschein-geeignet</label>' : '') +
+        (hasWe ? '<label class="tf-bg"><input type="checkbox" class="tf-wechk"> Nur Wochenende</label>' : '') +
         '<span class="tf-count" aria-live="polite"></span></div>';
     }
     el.innerHTML = BWW_BLOCK + bar + '<div class="termine-rows"></div>';
 
     var artSel = el.querySelector('.tf-art'), stadtSel = el.querySelector('.tf-stadt'),
-        bgChk = el.querySelector('.tf-bgchk'), rows = el.querySelector('.termine-rows'),
+        bgChk = el.querySelector('.tf-bgchk'), fsChk = el.querySelector('.tf-fschk'), weChk = el.querySelector('.tf-wechk'), rows = el.querySelector('.termine-rows'),
         count = el.querySelector('.tf-count');
 
     function apply() {
       var a = artSel ? artSel.value : '', s = stadtSel ? stadtSel.value : '', bg = bgChk && bgChk.checked;
+      var fs = fsChk && fsChk.checked, we = weChk && weChk.checked;
       var f = all.filter(function (k) {
-        return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || istBgUk(k));
+        return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || istBgUk(k)) &&
+               (!fs || !!k.fuehrerschein_geeignet) && (!we || istWochenende(k));
       });
       var tok = rows.__tok = (rows.__tok || 0) + 1;
       if (f.length) fillRows(rows, f, tok);
       else rows.innerHTML = '<p class="termine-empty">Für diese Auswahl ist gerade nichts frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
       if (count) count.textContent = f.length + (f.length === 1 ? ' Termin' : ' Termine');
     }
-    [artSel, stadtSel, bgChk].forEach(function (n) { if (n) n.addEventListener('change', apply); });
+    [artSel, stadtSel, bgChk, fsChk, weChk].forEach(function (n) { if (n) n.addEventListener('change', apply); });
     apply();
   }
 

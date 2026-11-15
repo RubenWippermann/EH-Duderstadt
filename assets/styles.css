@@ -241,6 +241,7 @@ body.menu-open .menu-toggle span::after{top:0;transform:rotate(-45deg)}
 :root[data-theme="dark"] .hero h1 .hl{background-image:linear-gradient(105deg,var(--o-500),var(--o-400) 60%,var(--o-300))}
 .hero-sub{font-size:clamp(1.06rem,.98rem + .35vw,1.22rem);color:var(--ink-2);max-width:36em;margin-bottom:1.7em}
 .hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-bottom:30px}
+.hero-actions .textlink{display:inline-flex;align-items:center;min-height:44px;padding:0 6px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .hero-trust{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.9rem;color:var(--muted)}
 .hero-trust span{display:inline-flex;align-items:center;gap:7px;font-weight:560}
 .hero-trust svg{width:17px;height:17px;color:var(--brand);flex:0 0 auto}
