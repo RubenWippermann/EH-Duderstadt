@@ -1026,3 +1026,5 @@ main p a,main li a{overflow-wrap:anywhere}
 @media (prefers-reduced-motion:no-preference){.sticky-cta a.pri{transition:opacity .2s ease,visibility 0s}}
 .form-hint{margin:12px 0 0;font-size:.85rem;line-height:1.5;color:var(--muted)}
 .form-hint a{color:var(--brand-lo);text-decoration:underline;text-underline-offset:2px}
+/* Tippfläche 16.11. (T-404): Linkzeile „Für Betriebe: …“ als eigene Tippziele ≥ 44 px */
+p.rv a{display:inline-block;padding:12px 6px;line-height:20px}
