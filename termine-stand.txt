@@ -1,4 +1,4 @@
-2026-11-17T22:37:15+00:00	85
+2026-11-17T23:30:03+00:00	85
 # startdate_ausgezeichnet=ja
 # bewegung_zuletzt=2026-11-14
 # unveraendert_seit_tagen=3
