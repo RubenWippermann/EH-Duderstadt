@@ -1029,3 +1029,13 @@ main p a,main li a{overflow-wrap:anywhere}
 .form-hint a{color:var(--brand-lo);text-decoration:underline;text-underline-offset:2px}
 /* Tippfläche 16.11. (T-404): Linkzeile „Für Betriebe: …“ als eigene Tippziele ≥ 44 px */
 p.rv a{display:inline-block;padding:12px 6px;line-height:20px}
+/* Lernseiten (W-LERN) */
+.pruefen{margin:14px 0;padding:10px 14px;border-left:4px solid var(--brand);background:var(--bg-tint);font-size:.9rem}
+.lern-block{margin:0 0 40px;padding-bottom:8px;border-bottom:1px solid var(--line-2)}
+.lern-block h3{margin-top:22px}
+.merk li{font-weight:620}
+.steps{padding-left:1.3rem}
+.blatt-kopf{margin-bottom:24px}
+.blatt .antwort{height:84px;border-bottom:1px solid var(--line);margin:6px 0 18px}
+.blatt-block{break-inside:avoid-page}
+@media print{.blatt-block{page-break-inside:avoid}.blatt .antwort{border-bottom:1px solid #000}}
