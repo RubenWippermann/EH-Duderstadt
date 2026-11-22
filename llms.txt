@@ -7,7 +7,7 @@ Stand: 22.11.2026 (wird bei jedem Bau der Website aktualisiert). Kursseite Erste
 Ausführliche Fassung: https://www.erstehilfe-duderstadt.de/llms-full.txt
 
 ## Kernfakten
-- Personal Paramedic e.K. ist Ausbildungsstelle Erste Hilfe (Kennziffer 8.2018) für Aus- und Fortbildung in Erster Hilfe. Nach § 26 Abs. 2 DGUV Vorschrift 1 muss die Ausbildung bei einer ermächtigten Stelle stattfinden.
+- Personal Paramedic e.K. ist Ausbildungsstelle Erste Hilfe (Kennziffer 8.2018). Nach § 26 Abs. 2 DGUV Vorschrift 1 muss die Ausbildung bei einer ermächtigten Stelle stattfinden.
 - Betriebliche Ersthelfer müssen spätestens alle zwei Jahre fortgebildet werden (§ 26 Abs. 3 DGUV Vorschrift 1).
 - Die erforderliche Zahl betrieblicher Ersthelfer richtet sich nach § 26 Abs. 1 DGUV Vorschrift 1 — ab zwei anwesenden Versicherten mindestens eine ausgebildete Person.
 - Die Lehrgangsgebühren für benannte betriebliche Ersthelfer trägt in der Regel der zuständige Unfallversicherungsträger — Berufsgenossenschaft oder Unfallkasse (§ 23 SGB VII); eine Übernahme ist nicht garantiert und hängt vom Träger ab.
@@ -19,7 +19,7 @@ Ausführliche Fassung: https://www.erstehilfe-duderstadt.de/llms-full.txt
 - Anbieter/Impressum: Personal Paramedic e.K., Königsallee 19, 40212 Düsseldorf
 - Zweigniederlassung: Worbiser Straße 2, 37115 Duderstadt
 - Telefon: +49 5527 7488495 · E-Mail: info@erstehilfe-duderstadt.de
-- Ausbildungsstelle Erste Hilfe (Kennziffer 8.2018) für Aus- und Fortbildung in Erster Hilfe
+- Ausbildungsstelle Erste Hilfe (Kennziffer 8.2018)
 - Offene Kurse finden in Worbis (Leinefelde-Worbis) statt; Zugang über Parkplatz/Hintereingang.
 - Kurse vor Ort bei euch im Betrieb, maximal 20 Teilnehmende je Kurs.
 - Erste-Hilfe-Ausbildung und -Fortbildung sind für betriebliche Ersthelfer in der Regel über Berufsgenossenschaft oder Unfallkasse abrechenbar.
@@ -72,7 +72,7 @@ Ausführliche Fassung: https://www.erstehilfe-duderstadt.de/llms-full.txt
 - [Ratgeber: Wer zahlt den Erste-Hilfe-Kurs? Kosten und Übernahme](https://www.erstehilfe-duderstadt.de/ratgeber/kosten-erste-hilfe-kurs/) — § 23 Abs. 2 Satz 2 SGB VII (Lehrgangsgebühren), Träger klären, Ablauf der Abrechnung, Selbstzahler
 - [Ratgeber: Erste-Hilfe-Ausbilder:in werden: Lehrkräfte-Ausbildung](https://www.erstehilfe-duderstadt.de/ratgeber/erste-hilfe-ausbilder-werden/) — Lehrkräfte-Ausbildung TB1 (3 Tage) und TB2 (4 Tage), DGUV Grundsatz 304-003, Fortbildung alle 3 Jahre
 - [Ratgeber: Notruf 112: Was die Leitstelle fragt](https://www.erstehilfe-duderstadt.de/ratgeber/notruf-112-leitstelle-fragt/) — Notruf 112: wann 112 oder 116 117, Fragen der Leitstelle, nicht auflegen; Quellen BBK, BMG, EU, Johanniter
-- [Firmenprofil / Faktenblatt (PDF)](https://www.erstehilfe-duderstadt.de/firmenprofil.pdf) — kompaktes Faktenblatt zu Angebot, Standorten, Ermächtigung (Kennziffer 8.2018), Preisen und Hinweisen zur Kostenübernahme
+- [Firmenprofil / Faktenblatt (PDF)](https://www.erstehilfe-duderstadt.de/firmenprofil.pdf) — kompaktes Faktenblatt zu Angebot, Standorten, Kennziffer 8.2018, Preisen und Hinweisen zur Kostenübernahme
 - [Kontakt](https://www.erstehilfe-duderstadt.de/kontakt/)
 - [Impressum](https://www.erstehilfe-duderstadt.de/impressum/) · [Datenschutz](https://www.erstehilfe-duderstadt.de/datenschutz/) · [AGB](https://www.erstehilfe-duderstadt.de/agb/) · [Widerruf](https://www.erstehilfe-duderstadt.de/widerruf/)
 
