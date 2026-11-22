@@ -5,7 +5,7 @@
 Stand: 22.11.2026 (wird bei jedem Bau der Website aktualisiert). Kurzfassung: https://www.erstehilfe-duderstadt.de/llms.txt
 
 ## Anbieter und Kontakt
-- Anbieter: Personal Paramedic e.K., Amtsgericht Düsseldorf · HRA 27786. Ermächtigte Stelle der gesetzlichen Unfallversicherung für Erste Hilfe im Betrieb (Kennziffer 8.2018).
+- Anbieter: Personal Paramedic e.K., Amtsgericht Düsseldorf · HRA 27786. Ausbildungsstelle Erste Hilfe (Kennziffer 8.2018) für Aus- und Fortbildung in Erster Hilfe.
 - Niederlassung Duderstadt: Worbiser Straße 2, 37115 Duderstadt.
 - Telefon: +49 5527 7488495 · E-Mail: info@erstehilfe-duderstadt.de
 - Anfrage und Terminübersicht: https://www.erstehilfe-duderstadt.de/kontakt/ · https://www.erstehilfe-duderstadt.de/kalender/
@@ -36,7 +36,7 @@ Stand: 22.11.2026 (wird bei jedem Bau der Website aktualisiert). Kurzfassung: ht
 - Orte mit eigener Seite oder Erwähnung: Duderstadt, Leinefelde-Worbis, Göttingen, Heilbad Heiligenstadt, Herzberg am Harz, Osterode am Harz, Northeim, Bad Lauterberg im Harz, Dingelstädt, Bad Sachsa; außerdem Eichsfeld, Südharz und Raum Göttingen.
 
 ## Häufige Fragen
-- Wer zahlt den Kurs? Die Lehrgangsgebühren für betriebliche Ersthelfer trägt in der Regel der zuständige Unfallversicherungsträger (§ 23 Abs. 2 SGB VII); Selbstzahler zahlen den genannten Preis.
+- Wer zahlt den Kurs? Die Lehrgangsgebühren für benannte betriebliche Ersthelfer trägt in der Regel der zuständige Unfallversicherungsträger (§ 23 SGB VII); eine Übernahme ist nicht garantiert und hängt vom Träger ab; Selbstzahler zahlen den genannten Preis.
 - Wie oft muss aufgefrischt werden? Betriebliche Ersthelfer spätestens alle zwei Jahre (§ 26 Abs. 3 DGUV Vorschrift 1).
 - Wie lang ist der Führerschein-Kurs? 9 Unterrichtseinheiten, gültig für alle Klassen (§ 19 FeV).
 - Gibt es Online-Kurse? Nein, alle Kurse finden in Präsenz statt.
